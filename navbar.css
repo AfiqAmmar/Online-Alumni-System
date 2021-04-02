@@ -1,0 +1,64 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar{
+    border-bottom: 3px solid #b916c7;
+}
+
+.btn{
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+      
+}
+
+.btn-login{
+    background-color: #a30fb0;
+    width: 132px;
+    height: 35px;
+    margin-right: 14px;
+}
+
+.btn-signup{
+    background-color: #03167c;
+    width: 132px;
+    height: 35px;
+    margin-right: 33px;
+}
+
+.btn-logout{
+    background-color: #a30fb0;
+    width: 132px;
+    height: 35px;
+    margin-right: 14px;
+    margin-left: 42px;
+}
+
+footer{
+    background-color: #a30fb0;
+    height: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.navbar .nav-item a{
+    color: #0000;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
