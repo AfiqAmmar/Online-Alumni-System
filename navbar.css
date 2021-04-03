@@ -46,19 +46,17 @@ footer{
     color: #0000;
 }
 
-.has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
+.input-group-add-on .form-control{
+    height: 1rem;
+}
+
+.input-group-btn .btn{
+    height: 2rem;
+    padding-left: 5px;
+}
+
+.navbar-form{
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center;
-    pointer-events: none;
-    color: #aaa;
 }
-
-.has-search .form-control {
-    padding-left: 2.375rem;
-}
-

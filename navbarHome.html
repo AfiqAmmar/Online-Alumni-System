@@ -11,7 +11,7 @@
     <title>Online Alumni System</title>
 </head>
 <body>  
-  <nav class="navbar sticky-top navbar-expand-md navbar-light bg-none">
+  <nav class="navbar sticky-top navbar-expand-md navbar-light bg-none justify-content-between">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +32,14 @@
                   <a class="nav-link" href="#">Careers</a>
                 </li>
             </ul>
-            <div class="form-group has-search">
-                <span class="fa fa-search form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
+            <form class="navbar-form" role="search">
+              <div class="input-group add-on">
+                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
             <button class="btn btn-logout text-white">log out</button>
         </div>
       </div>      
