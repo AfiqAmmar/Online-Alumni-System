@@ -22,8 +22,16 @@ form{
     border-radius: 20px !important;
 }
 
+.signup-form{
+    width: 850px;
+    height: 620px;
+    margin: 20px;
+    border-radius: 20px !important;
+}
+
 input[type="email"],
-input[type="password"]{
+input[type="password"],
+input[type="text"]{
     border: 1px thin thistle;
     margin-bottom: 25px;
     height: 35px;
@@ -46,4 +54,8 @@ input[type="password"]{
 
 .btn-signup{
     background: #03167c !important;
+}
+
+img{
+    margin-bottom: 25px;
 }
