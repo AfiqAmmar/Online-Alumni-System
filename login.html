@@ -35,7 +35,7 @@
                         <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="password" required/>
                         <a href="#" style="float: right; font-size: 12px;">forgot password?</a><br>
                     </div>
-                        <button type="submit" class="btn btn-login text-white" style="width: 60%;">log in</button><br>
+                        <button type="submit" onclick="getInfo()" class="btn btn-login text-white" style="width: 60%;">log in</button><br>
                         <h class="text-center" style="font-size: 13px;">don't have an account?</h><br>
                         <a href="signup.html" type="button" class="btn btn-signup text-white">sign up</a>
                     </div>
@@ -43,6 +43,27 @@
             </div>
         </div>
     </div>
+    <script> // sample email and password just for project part 1 purposes
+        var account = [
+            {email: "alumni@gmail.com", password: "alumnipassword"},
+            {email: "admin@gmail.com", password: "adminpassword"}
+        ]
+
+        function getInfo(){
+            var email = document.getElementById("InputEmail").value
+            var password = document.getElementById("InputPassword").value
+
+            for(var i = 0; i < account.length; i++){
+                if(email == account[i].email && password == account[i].password){
+                    console.log(email + " successfully logged in")
+                    location.assign("index.html") // use assign method instead of replace so there is a back option 
+                    return
+                }
+            }
+            alert("incorrect username or password!")
+        }
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
