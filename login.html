@@ -22,9 +22,9 @@
                     <div class="form-group card-text">
                       <div class="mb-4">
                         <select class="form-select" style="font-size: 14px;">
-                            <option selected>role</option>
-                            <option value="1">Alumni</option>
-                            <option value="2">Administrator</option>
+                            <option disabled hidden selected>role</option>
+                            <option value="alumni">Alumni</option>
+                            <option value="admin">Administrator</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -50,13 +50,21 @@
         ]
 
         function getInfo(){
+            var role = document.querySelector('select')
             var email = document.getElementById("InputEmail").value
             var password = document.getElementById("InputPassword").value
 
+            role = role.options[role.selectedIndex].text
+
             for(var i = 0; i < account.length; i++){
-                if(email == account[i].email && password == account[i].password){
+                if(role == "Alumni" && email == account[i].email && password == account[i].password){
                     console.log(email + " successfully logged in")
                     location.assign("index.html") // use assign method instead of replace so there is a back option 
+                    return
+                }
+                if(role == "Administrator" && email == account[i].email && password == account[i].password){
+                    console.log(email + " successfully logged in")
+                    location.assign("adminNavbar.html")
                     return
                 }
             }
