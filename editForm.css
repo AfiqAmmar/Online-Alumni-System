@@ -1,0 +1,34 @@
+.manage-profile{
+    border-radius: 20px;
+}
+
+.card-header{
+    background-color: #a30fb0;
+}
+
+.btn{
+    height: 40px;
+    width: 160px;
+}
+
+.btn-save{
+    background-color: #a30fb0;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.modal-header{
+    background-color: #a30fb0;
+}
+
+.btn-closed{
+    background-color: #ced4da;
+}
+
+.btn-confirm{
+    background-color: #a30fb0;
+}
+
+
+
+
