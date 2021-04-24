@@ -31,7 +31,7 @@
             Join one of our many workshops, either as an instructor or a student.<br>
             FSKTM Workshops are one of the most anticipated events in our faculty,<br>
             so come play your part as an alumni and join the workshops today!<br></p>
-            <a href="login.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:right; font-weight: bold;">more events</a>
+            <a href="login.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:right; font-weight: bold;" onclick="alertMessage()">more events</a>
         </div>
         <div class="col-md-auto">
           <img src="image/event.jpg" alt="career" class="rounded-circle" width="400" height="400"> 
@@ -50,10 +50,16 @@
             Are you a fresh graduate looking for career opportunities?<br>
             View the Careers page for job openings, posted by other alumnus!<br>
             Log in for more info.<br></p>
-            <a href="login.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:left; font-weight: bold;">more careers</a>
+            <a href="login.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:left; font-weight: bold;" onclick="alertMessage()">more careers</a>
         </div>
       </div>
     </div>
+
+    <script>
+      function alertMessage(){
+        alert("Please log in to continue!")
+      }
+    </script>
 
     <footer class="footer mt-auto py-3 fixed-bottom text-white">
       <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
