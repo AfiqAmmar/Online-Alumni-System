@@ -59,12 +59,12 @@
             for(var i = 0; i < account.length; i++){
                 if(role == "Alumni" && email == account[i].email && password == account[i].password){
                     console.log(email + " successfully logged in")
-                    location.assign("index.html") // use assign method instead of replace so there is a back option 
+                    location.assign("Homepage.html") // use assign method instead of replace so there is a back option 
                     return
                 }
                 if(role == "Administrator" && email == account[i].email && password == account[i].password){
                     console.log(email + " successfully logged in")
-                    location.assign("adminNavbar.html")
+                    location.assign("manageEvents.html")
                     return
                 }
             }
