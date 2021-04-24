@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Online Alumni System</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>  
+  <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="Homepage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Event.html">Event</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Careers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Alumni.html">Profile</a>
+                </li>
+            </ul>
+            <form class="navbar-form" role="search">
+              <div class="input-group add-on">
+                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <a href="SearchPage.html" class="btn btn-close-white" role="button"> </a>
+                </div>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+              </li>
+            </ul>
+            <button class="btn btn-logout text-white">log out</button>
+        </div>
+      </div>      
+    </nav>
+    </div>
+<main>
+    <div class="jumbotron">
+        <div class="container">
+        <br>
+       <!--Icon and Alumni Top-->
+        <h1></i><b> Alumni Profile </b><i class="fa fa-user"></i></h1> 
+        <p class="lead">Let's Connect and get to know all of the Alumni of FSKTM UM</p>
+        <hr class="my-4">
+          <div class="shadow p-3 mb-5 bg-white rounded" >
+            <h3  class="w-auto p-3" style="background-color: rgb(179, 122, 233);">Sebastion Stan</h3>
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img class="img-responsive" src="image/Profile1.jpg" alt="Boy" class="img-rounded" height="300" width="300">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body" >
+                    <h5 class="card-title">
+                      <i>Software Designer</i>
+                      </h5>
+                    <p class="card-text">
+                      <i>Graduated on 2012</i>
+                      <p>Bio</p>
+                        <ul>
+                            <li><b>Company:</b> Shopee Malaysia </li>
+                            <li><b>Email:</b> Sebastion@gmail.com</li>
+                            <li><b>Phone Number:</b>0132203456</li>
+                            <li><b>LinkedIn:</b>Sebastion@linkedin.com</li>
+                            <li><b>Course:</b>Bachelor of Computer Science(Software Engineering)</li>
+                           </ul>
+                           <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px">Kajang, Selangor</p></label><br>
+                    </p>
+                    <p class="card-text"><small class="text-muted">Joined 8 month ago.</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+       <button style="color:black; background:#F4C110; border: 25px; height: 38px; float:left;" onclick="goBack()"> Back </button>
+       <br>
+            <script>
+              function goBack() {
+                window.history.back();
+              }
+              </script>
+
+      </div></div>
+      <br>
+      <br>
+      <br>
+</main>
+
+    <footer class="footer mt-auto py-3 fixed-bottom text-white">
+      <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
+      <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
+    </footer>      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>
