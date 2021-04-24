@@ -54,9 +54,30 @@
   <div class="container-fluid d-flex justify-content-center">
     <main>
         <div class="row top_description mt-5">  
-            <a href="editForm.html" class="text-dark my-0 d-flex justify-content-end" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-offset="500,0" title="Click here to manage and setup profile"><small>Manage Profile</small></a>
+            <div class="row my-0">
+              <div class="col">
+                <span data-bs-toggle="tooltip" data-bs-placement="left" title="Click here to see contact info">
+                  <a href="" class="text-dark" data-bs-toggle="modal" data-bs-target="#imageModal"><small>Edit Image</small></a>
+                </span>
+              </div>
+              <div class="col">
+                <a href="editForm.html" class="text-dark d-flex justify-content-end" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-offset="300,0" title="Click here to manage and setup profile"><small>Manage Profile</small></a>
+              </div>
+            </div>
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h6 class="modal-title text-white" id="imageModalLabel">Edit Image</h6>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        
+                      </div>
+                  </div>
+              </div>
             <div class="col-md-2 offset-md-1 col-lg-2 profile_picture">
-                <img src="image/icon.png" class="rounded-pill" alt="Profile Picture">
+                <img src="image/icon.png" class="rounded-pill" alt="Profile Picture"><br>
             </div>
             <div class="col-sm-5 col-md-6 offset-md-1 description">
                 <label for="Name" class="col-md-7"><h2>Afiq Ammar</h2></label>
@@ -107,6 +128,7 @@
               </div>
             </div>
           </div>
+         
         <hr class="border border-dark">
         <div class="jobs ml-3">
           <div class="title mt-4 mb-2">
@@ -115,7 +137,7 @@
           <div class="job-list">
             <div class="row">
               <div class="col my-3 mx-2">
-                <div class="card shadow" style="width: 25rem;">
+                <div class="card shadow" style="width: 25rem; height: auto;">
                   <div class="card-header text-white">
                     <h6></h6>
                   </div>
@@ -125,8 +147,13 @@
                     <div class="card-text">
                       <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
                       <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
+                      <hr>
                     </div>
-                    <a href="#" class="btn btn-more text-white d-flex justify-content-center">View more</a>
+                    <div class="row mb-0">
+                      <div class="col d-flex justify-content-center">
+                        <a href="#" class="btn btn-more text-white">View more</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -141,8 +168,13 @@
                     <div class="card-text">
                       <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
                       <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
+                      <hr>
                     </div>
-                    <a href="#" class="btn btn-more text-white d-flex justify-content-center">View more</a>
+                    <div class="row">
+                      <div class="col d-flex justify-content-center">
+                        <a href="#" class="btn btn-more text-white">View more</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -159,8 +191,13 @@
                     <div class="card-text">
                       <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
                       <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
+                      <hr>
                     </div>
-                    <a href="#" class="btn btn-more text-white d-flex justify-content-center">View more</a>
+                    <div class="row">
+                      <div class="col d-flex justify-content-center">
+                        <a href="#" class="btn btn-more text-white">View more</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -175,8 +212,13 @@
                     <div class="card-text">
                       <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
                       <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
+                      <hr>
                     </div>
-                    <a href="#" class="btn btn-more text-white d-flex justify-content-center">View more</a>
+                    <div class="row">
+                      <div class="col d-flex justify-content-center">
+                        <a href="#" class="btn btn-more text-white">View more</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
