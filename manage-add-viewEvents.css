@@ -231,3 +231,34 @@ footer{
 .card-img-left {
     height: 200px;
 }
+
+/* pagination */
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #eb078b !Important;
+    border: solid 1px #eb078b !Important;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #8f0857;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #eb078b ;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
