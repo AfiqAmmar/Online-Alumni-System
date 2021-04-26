@@ -29,8 +29,11 @@
 
 .btn-more{
     background-color: #eb078b;
+    height: 40px;
+    width: auto;
 }
 
 #addImagePreview{
     object-fit: fill;
 }
+
