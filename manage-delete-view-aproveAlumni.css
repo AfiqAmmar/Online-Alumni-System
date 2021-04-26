@@ -129,6 +129,8 @@ footer{
     position: relative;
     cursor: pointer;
     text-align: center;
+    height: 350px;
+    width: 100%;
 }
 
 .picture{
@@ -155,6 +157,11 @@ footer{
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+.cropped {
+    height: 350px; /* height of container */
+    object-fit: cover;
 }
 
 .btn-no {

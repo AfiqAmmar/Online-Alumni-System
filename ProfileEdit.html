@@ -70,7 +70,7 @@
             <div class="container-fluid">
 
               <div class="container-lg mt-5 mb-5 pb-5">
-                <div class="row">
+                <div class="row mb-5">
                   <div class="col">
                     <div class="picture-container">
                       <div class="picture">
@@ -90,10 +90,9 @@
                     <label for="UserName" class="form-label"><strong>Name</strong></label>
                       <div class="row ">
                         <div class="col">
-                          <input type="text" class="form-control" id="firstName" placeholder="Sebastian" aria-label="First name">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" id="lastName" placeholder="Stan" aria-label="Last name">
+                          <form action="ProfileView.html" method="GET">
+                            <input type="text" class="form-control" name="UserName" id="UserName" value="Sebastian Stan" aria-label="Full Name">
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -149,17 +148,22 @@
                           </div>
                         </div>
                             
+                      
+                    </div>
                   </div>              
-                </div>
+                </div>  
 
-                <div class="row">
-                  <div class=" col d-grid gap-2 d-md-block">
-                    <a class="btn-view btn" href="AdminMembers.html" role="button">Back</a>        
-                  </div>       
-                  <a class="btn btn-view" href="ProfileView.html" role="button">Save</a>                   
+                <div class="container">
+                  <div class="row mt-5 pt-5">
+                    <div class=" col d-grid gap-2 d-md-block">
+                      <a class="btn-view btn" href="AdminMembers.html" role="button">Back</a>        
+                    </div>       
+                    <a class="btn btn-view btnUpdate" href="ProfileView.html" role="button">Save</a>                   
+                  </div>
                 </div>
+                
 
-                </div>         
+                       
               </div>
             </div>
           </div>
