@@ -2,6 +2,7 @@
     height: 208px;
     width: 200px;
     background-color: #c4c4c4;
+    object-fit: fill;
 }
 
 .details{
@@ -13,13 +14,23 @@
 }
 
 .card-img-top{
-    height: 15rem;
+    height: 12rem;
+    width: auto;
+    object-fit: fill;
 }
 
 .card-header{
-    background-color: #a30fb0;
+    background-color: #03167c;
+}
+
+.card-footer{
+    background-color: #F4C110;
 }
 
 .btn-more{
-    background-color: #a30fb0;
+    background-color: #eb078b;
+}
+
+#addImagePreview{
+    object-fit: fill;
 }
