@@ -188,9 +188,39 @@
 
                     </div>
                   </div>
-                                  
-                <a class="btn btn-view" href="#" role="button">Approve</a>                   
-                </div>
+                           
+                 
+                    <script>
+                      var myModal = document.getElementById('myModal')
+                      var myInput = document.getElementById('myInput')
+  
+                      myModal.addEventListener('shown.bs.modal', function () {
+                        myInput.focus()
+                    })
+                   </script>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-view" data-bs-toggle="modal" data-bs-target="#approval">
+                      Approve
+                    </button>
+  
+                     <!-- Modal -->
+                     <div class="modal fade" id="approval" tabindex="-1" aria-labelledby="approval" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="approval">Approve Profile</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to approve this profile?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-no" data-bs-dismiss="modal">No</button>
+                            <a type="button" class="btn btn-view" href="AdminMembers.html">Yes</a>
+
+                        </div>
+                                     
+                    
 
                 </div>         
               </div>
@@ -208,7 +238,9 @@
     </footer>      
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script>feather.replace()</script>
+    <script>
+      feather.replace()
+    </script>
   </body>
 
 </html>
