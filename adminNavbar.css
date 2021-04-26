@@ -6,22 +6,11 @@ body{
     border-bottom: 3px solid #b916c7;
     background-color: white;
 }
-
-.navbar .nav-item a{
-    color: #0000;
-}
   
 .navbar .navbar-toggler {
     top: .25rem;
     right: 1rem;
-}
-
-#profileIcon {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    height: 2rem;
-    padding-left: 5px;
-
+    margin-right: 1rem;
 }
 
 .btn{
@@ -51,18 +40,9 @@ footer{
     top: 80px;
     bottom: 0;
     left: 0;
-    padding: 30px 0 0; /* navbar height */
+    padding: 40px 0 0; /* navbar height */
     box-shadow: inset -3px 0 0 rgba(163, 15, 176, .1);
-    background-color: rgba(163, 15, 176, .025);
-}
-  
-.sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: .5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* scrollable contents if viewport is shorter than content. */
+    background-color: white;
 }
   
 .sidebar .nav-item a {
