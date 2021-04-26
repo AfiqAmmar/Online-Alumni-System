@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -56,44 +57,103 @@
     
     <h1>Job Advertisement</h1>
     
-    <div class="info">
-    <h4><dt style="font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: #be85cc;" align="Center">Information Technology (I.T.)</dt></h4>
-        <dd>ExxonMobil Malaysia<br>
-            Jalan Sungai Ramal Luar, Selangor
-          <div class="picture">
-            <a href="c2.jpg"><img src="c2thumb.png" alt="dummycompany2" width="300" height="300" style="border-radius:50%;"></a>
-          </div>
-       <ol type="a">  <li>Job Available:</li> 
-            <ul>
-                <li>Software / Applications Development</li>
-                <li>Automation</li>
-                <li>Network Security</li>
-                <li>I.T. Risk Management and Security</li>
-                <li>Server, Storage & Backup</li>
-            </ul><br>
+    <div class="card px-4">
+      <div class="card-body shadow">
+          <h2 class="card-event-title">New Job details</h2>
+          <form class="row g-3 text-center">
+                  <div class="picture">              
+                      <input type="file" id="c2Image" class="form-control" 
+                          onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                      <img src="c2.jpg" class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">
+                    </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inputTitle" class="form-label"></label>
+                <input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
+              </div>
+              <div class="col-md-6">
+                  <label for="inputcname" class="form-label"></label>
+                  <input type="text" class="form-control" id="inputcname" placeholder="Company Name" required>
+              </div> 
+            </div>  
+              
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inputcaddress" class="form-label"></label>
+                <input type="text" class="form-control" id="inputcaddress" placeholder="Company Address" required>
+              </div>
+              <div class="col-md-6">
+                <label for="inputcitystate" class="form-label"></label>
+                <input type="text" class="form-control" id="inputcitystate" placeholder="City, State" required>
+              </div>
+            </div>
 
-            <li>Job Specialized Skills:</li> 
-            <ul>
-                <li>Network Engineer</li>
-                <li>Server Engineer</li>
-                <li>Plant Information (PI) Analyst</li>
-                <li>Operations Centre (EOC) Major Incident Manager</li>
-            </ul>
-            
-            Contact: 03-80202051 &nbsp;
-            Email: dknshSDNBHD@gmail.com
-        </dd> 
-    </div>
+              <div class="col-12">
+                  <label for="inputDesc" class="form-label"></label>
+                  <textarea class="form-control" id="inputDesc" rows="3" placeholder="Write the job description here..."></textarea>
+              </div>
 
-        <button type="button" class="btn-delete">Delete</button>
-        <button type="button" class="btn-update">Update</button>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="inputcontact" class="form-label"></label>
+                  <input type="tel" class="form-control" id="inputcontact" placeholder="Contact" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputemail" class="form-label"></label>
+                  <input type="text" class="form-control" id="inputemail" placeholder="Email" required>
+                </div>
+              </div>
 
-    <footer class="footer mt-auto py-3 fixed-bottom text-white">
+            </form>
+      </div>
+    
+                    <div class="col text-center">
+                      <button role="button" class="btn btn-delete text-white" id="btnDelete" href="#">Delete</button>
+                      <button role="button" class="btn btn-update text-white" id="btnUpdate" href="#" >Update</button>
+                    </div> </div> 
+
+    <footer class="footer mt-auto py-0 text-white">
         <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
         <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
     </footer>      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-       
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        feather.replace()
+
+        $(document).ready(function() {
+            $("#inputTitle").val("Information Technology (I.T.)");
+            $("#inputcname").val("ExxonMobil Malaysia.");
+            $("#inputcaddress").val("Jalan Sungai Ramal Luar");
+            $("#inputcitystate").val("Selangor");
+            $("#inputcontact").val("03-80202051");
+            $("#inputemail").val("dknshSDNBHD@gmail.com");
+
+            var desc = "Job Available:\n" + 
+            "Software / Applications Development \n Automation\n Network Security\n I.T. Risk Management and Security\n Server, Storage & Backup\n\n " + 
+            "Job Specialized Skills:\n" +
+            "Network Engineer\n Server Engineer\n Plant Information (PI) Analyst\n Operations Centre (EOC) Major Incident Manager\n\n" 
+
+            $("#inputDesc").val(desc);
+            
+            $("input").attr("enable", true);
+            $("textarea").attr("enable", true);
+            $("file").attr("enable", true);
+        });
+
+        $("#btnDelete").on("click", function () {
+            $("input").attr("disabled", false);
+            $("textarea").attr("disabled", false);
+            $("file").attr("disabled", false);
+        });
+
+        $("#btnUpdate").on("click", function () {
+            $("input").attr("disabled", true);
+            $("textarea").attr("disabled", true);
+            $("file").attr("disabled", true);
+        });
+    </script> 
 
 </body>
 </html>

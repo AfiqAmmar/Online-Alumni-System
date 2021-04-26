@@ -54,38 +54,64 @@
     </nav>
 
     <h1>Job Registration</h1>
-<script type="text/javascript"src="testing.js">
-        </script>
         
     <form action="#" method="post">
       
-      <div class="form">       
+        <div class="card px-4">
+            <div class="card-body shadow">
+                <h2 class="card-event-title">New Job details</h2>
+                <form class="row g-3 text-center">
+                        <div class="picture">              
+                            <input type="file" id="addImage" class="form-control" 
+                                onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                            <img src="office-building.png" class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">
+                        </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="inputTitle" class="form-label"></label>
+                      <input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputcname" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputcname" placeholder="Company Name" required>
+                    </div> 
+                  </div>  
+                    
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="inputcaddress" class="form-label"></label>
+                      <input type="text" class="form-control" id="inputcaddress" placeholder="Company Address" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputcitystate" class="form-label"></label>
+                      <input type="text" class="form-control" id="inputcitystate" placeholder="City, State" required>
+                    </div>
+                  </div>
 
-      <br>
-        <div><input type="text" id="title" placeholder="   Title" aria-label="Title" required></div><br>
+                    <div class="col-12">
+                        <label for="inputDesc" class="form-label"></label>
+                        <textarea class="form-control" id="inputDesc" rows="3" placeholder="Write the job description here..."></textarea>
+                    </div>
 
-        <div><input type="text" id="cn" placeholder="   Company Name" aria-label="Title" required></div><br>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="inputcontact" class="form-label"></label>
+                        <input type="tel" class="form-control" id="inputcontact" placeholder="Contact" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputemail" class="form-label"></label>
+                        <input type="text" class="form-control" id="inputemail" placeholder="Email" required>
+                      </div>
+                    </div>
 
-        <div><input type="text" id="ca" placeholder="   Company Address" aria-label="Title" required></div><br>
+                  </form>
+            </div>
+            
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-add-submit text-white">Submit</button>
+                    </div></div>
 
-        <div><input type="text" id="city" placeholder="   City, State" aria-label="City"></div> &nbsp;
-
-        <div><input id="photo" type="file"></div>
-                
-        <div><textarea id="description" placeholder="   Description" aria-label="Description" cols="20" rows="6"></textarea></div><br> 
-
-        <div class="row">
-          <div class="col"><input type="number" id="contact" placeholder="   Contact" aria-label="Contact"></div>
-
-          <div class="col"><input type="text" id="email" placeholder="   Email" aria-label="Email"></div>
-        </div><br>
-        
-        <! --Inline Javascript-- >
-        <button type="button" class="btn-submit" onClick="alert('Are you sure to submit the form?');">Submit</button>
-      </div>
-
-
-        <footer class="footer mt-auto py-3 fixed-bottom text-white">
+        <footer class="footer mt-auto py-0 text-white">
             <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
             <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
         </footer>      
