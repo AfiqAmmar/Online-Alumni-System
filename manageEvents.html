@@ -125,7 +125,7 @@
                         </div>
 
                     </div>
-                    <a href="addEvent.html" class="btn btn-add">+</a>
+                    <a href="addEvent.html" class="btn btn-add" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me to add a new event!">+</a>
                 </div>
             </main>
         </div>
@@ -140,6 +140,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         feather.replace();
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
 
         $(".btn-delete").click(function(){
             var $target = $(this).parents(".col");
