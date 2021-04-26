@@ -15,7 +15,7 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
     crossorigin="anonymous">
 
-    <link rel="stylesheet" href="manage-add-viewEvents.css">
+    <link rel="stylesheet" href="manage-delete-view-aproveAlumni.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,11 +33,6 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed my-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="profileIcon"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
-          </li>
-        </ul>
         <button class="btn btn-logout text-white">log out</button>
     </header>
   
@@ -46,13 +41,6 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
           <div class="position-sticky">
             <ul class="nav flex-column">
-
-              <li class="nav-item px-2 py-1">
-                <a class="nav-link" href="#">
-                  <span data-feather="home"></span>
-                    Dashboard
-                </a>
-              </li>
 
               <li class="nav-item px-2 py-1">
                 <a class="nav-link active" aria-current="page" href="#">
@@ -86,7 +74,7 @@
                 <div class="row">
                   <div class="col align-self-start height-100">
                     <div class="row pb-3">
-                      <img src="image/person 1.jpg" class="img-fluid rounded float-start">
+                      <img src="image/Profile1.jpg" class="img-fluid rounded float-start">
                     </div>
                   </div>
 
@@ -95,79 +83,64 @@
                     <label for="UserName" class="form-label"><strong>Name</strong></label>
                       <div class="row ">
                         <div class="col">
-                          <input type="text" class="form-control" id="firstName" placeholder="Katelijne" aria-label="First name" disabled>
+                          <input type="text" class="form-control" id="firstName" placeholder="Sebastian" aria-label="First name" disabled>
                         </div>
                         <div class="col">
-                          <input type="text" class="form-control" id="lastName" placeholder="Eccleston" aria-label="Last name"disabled>
+                          <input type="text" class="form-control" id="lastName" placeholder="Stan" aria-label="Last name" disabled>
                         </div>
                       </div>
                     </div>
 
-                  <div class="pt-3 pb-3">
-                    <div class="row">
-                      <div class="col">
-                        <label for="UserBirthday" class="form-label"><strong>Email</strong></label>
-                          <input type="email" class="form-control" id="UserEmail" placeholder="Kath@gmail.com"disabled>
-                      </div>
-                      <div class="col">
-                        <label for="GradYear" class="form-label"><strong>Graduation Year</strong></label>
-                          <input type="number" class="form-control" id="GradYear" placeholder="2018"disabled>
-                      </div>
-                    </div>
-                  </div>
+                        <div class="pt-3 pb-3">
+                          <div class="row">
+                            <div class="col-md-9">
+                              <label for="Course" class="form-label"><strong>Course</strong></label>
+                              <select class="form-select" aria-label="Faculty Name" disabled>  
+                                <option selected>Bachelor of Computer Science (Software Engineering) </option>
+                                <option value="1">Bachelor of Computer Science (Artificial Intelligence)</option>
+                                <option value="2">Bachelor of Computer Science (Information System)</option>
+                                <option value="3">Bachelor of Computer Science (Computer System and Network)</option>
+                              </select>
+                            </div>
+                            <div class="col">
+                              <label for="GradYear" class="form-label"><strong>Graduation Year</strong></label>
+                                <input type="number" class="form-control" id="GradYear" placeholder="2012" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="pt-3 pb-3">
+                          <div class="row">
+                            <div class="col">
+                              <label for="LinkedIn" class="form-label"><strong>LinkedIn</strong></label>
+                                <input type="text" class="form-control" id="LinkedIn" placeholder="Sebastion@linkedin.com" disabled>
+                            </div>
+                            <div class="col">
+                              <label for="PhoneNumber" class="form-label"><strong>Phone Number</strong></label>
+                                <input type="number" class="form-control" id="PhonenNumber" placeholder="0132203456" disabled>
+                            </div>
+                          </div>
+                        </div>
 
-                  <div class="pt-3 pb-3">
-                    <label for="Course" class="form-label"><strong>Faculty</strong></label>
-                    <select class="form-select" aria-label="Faculty Name"disabled> 
-                      <option selected>Bachelor of Computer Science (Software Engineering) </option>
-                      <option value="1">Bachelor of Computer Science (Artificial Intelligence)</option>
-                      <option value="2">Bachelor of Computer Science (Information System)</option>
-                      <option value="3">Bachelor of Computer Science (Computer System and Network)</option>
-                    </select>
-                  </div>
-                      
-                  <div class="pt-3 pb-3">
-                    <label for="UserWork" class="form-label"><strong>Occupation</strong></label>
-                    <input type="text" class="form-control" id="UserWork" placeholder="Software Tester" disabled>
-                  </div>
-                  
-                  <div class="pt-3 pb-3">
-                    <div class="row">
-                      <div class="col">
-                        <label for="UserEmail" class="form-label"><strong>Email</strong></label>
-                          <input type="email" class="form-control" id="UserEmail" placeholder="Kath@gmail.com" disabled>
-                      </div>
-                      <div class="col">
-                        <label for="PhoneNumber" class="form-label"><strong>Phone Number</strong></label>
-                          <input type="number" class="form-control" id="PhonenNumber" placeholder="011234567" disabled> 
-                      </div>
-                    </div>
-                  </div>
+                        <div class="pt-3 pb-3">
+                          <div class="row">
+                            <div class="col">
+                              <label for="UserCity" class="form-label"><strong>City</strong></label>
+                                <input type="text" class="form-control" id="UserEmail" placeholder="Kajang" disabled> 
+                            </div>
+                            <div class="col">
+                              <label for="UserState" class="form-label"><strong>State</strong></label>
+                                <input type="text" class="form-control" id="UserState" placeholder="Selangor" disabled>
+                            </div>
+                          </div>
+                        </div>
 
-                  <div class="pt-3 pb-3">
-                    <div class="row">
-                      <div class="col">
-                        <label for="UserCity" class="form-label"><strong>City</strong></label>
-                          <input type="text" class="form-control" id="UserEmail" placeholder="Cheras" disabled>
-                      </div>
-                      <div class="col">
-                        <label for="UserState" class="form-label"><strong>State</strong></label>
-                          <input type="text" class="form-control" id="UserState" placeholder="Selangor" disabled>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pt-3 pb-3">
-                    <div class="row">
-                      <div class="col">
-                        <label for="UserBio" class="form-label"><strong>Biodata</strong></label>
-                          <input type="text" class="form-control" id="UserEmail" placeholder="Live Love Life" disabled>
-                      </div>
-                      <div class="col">
-                        <label for="LinkedIn" class="form-label"><strong>LinkedIn</strong></label>
-                          <input type="text" class="form-control" id="LinkedIn" placeholder="Kate@linkedin.com" disabled>
-                      </div>
-                    </div>
+                        <div class="pt-3 pb-3">
+                          <div class="row">                            
+                              <label for="UserBio" class="form-label"><strong>Biodata</strong></label>
+                                <input type="text" class="form-control" id="UserEmail" placeholder="Software Designer" disabled>
+                          </div>
+                        </div>        
                   </div>                     
                             
                   </div>              
@@ -180,21 +153,40 @@
 
                   <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn-view btn" href="ProfileEdit.html" role="button">Edit</a>
-                    <div>     
-                    <button class="btn-view btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Delete</button>
-                      <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-                        <div class="offcanvas-header">
-                          <h5 class="offcanvas-title" id="offcanvasBottomLabel"><strong>Delete Confirmation</strong></h5>
-                          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body small">
-                          <h6>Are you sure you want to delete?</h6>
-                          <div class="d-grid gap-2 d-md-block pt-3">
-                            <a class="btn btn-colour" role="button" href="AdminMembers deleted.html">Yes</a>
-                            <button class="btn btn-colour " data-bs-dismiss="offcanvas" type="button">No</button>
+                    <div>                
+                      <script>
+                        var myModal = document.getElementById('myModal')
+                        var myInput = document.getElementById('myInput')
+
+                        myModal.addEventListener('shown.bs.modal', function () {
+                          myInput.focus()
+                      })
+                     </script>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-view" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                      </button>
+
+                       <!-- Modal -->
+                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Delete Profile</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this profile?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-no" data-bs-dismiss="modal">No</button>
+                              <a type="button" class="btn btn-view" href="AdminMembers.html">Yes</a>
+                            </div>
                           </div>
                         </div>
                       </div>
+
+                    </div>
                   </div>
                                   
                 <a class="btn btn-view" href="#" role="button">Approve</a>                   
@@ -210,7 +202,7 @@
       </div>
     </div>     
    
-    <footer class="footer mt-auto py-3 fixed-bottom text-white">
+    <footer class="footer mt-auto py-0 text-white">
       <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
       <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
     </footer>      

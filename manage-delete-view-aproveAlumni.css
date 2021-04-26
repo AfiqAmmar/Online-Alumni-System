@@ -97,7 +97,7 @@ footer{
     vertical-align: text-bottom;
 }
 
-/* general, events */
+/* general, profile */
 
 .card-event {
     margin-top: 30px;
@@ -157,36 +157,33 @@ footer{
     width: 100%;
 }
 
-/* manage events */
-
-.card-img-top {
-    height: 200px;
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
-}
-
-.btn-view {
-    background-color: #eb078b;
-    color: white !important;
+.btn-no {
+    color : #F4C110;
+    background-color: white;
+    border-radius: 20px;
+    border-color: black;
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100px;
     height: 35px;
 }
 
-.btn-add {
-    background-color: #a30fb0;
-    color: #FFFFFF;
-    font-size: xx-large;
-    position: fixed;
-    bottom: 50px;
-    right: 40px;
-    height: 60px;
-    width: 60px;
-    margin-bottom: 30px;
-    border-radius: 30px;
-    box-shadow: 1px 3px 5px #888888;
+/* manage profile */
+
+.card-img-top {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
 }
+
+.btn-view {
+    background-color: #F4C110;
+    color: black !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 35px;
+}
+
 
 .img-container {
     position:relative;
@@ -194,41 +191,39 @@ footer{
     text-align:center;
 }
 
-.btn-delete {
-    background-color: red;
-    font-weight: bold;
-    font-size: large;
-    color: white !important;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    box-shadow: 1px 3px 5px #888888;
-}
-
-/* add event */
-
-.btn-add-submit{
-    background-color: #eb078b;
-    color: white !important;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 35px;
-}
-
-/* view event */
-
-.btn-edit-update {
-    background-color: #eb078b;
-    color: white !important;
-    width: 100px;
-    height: 35px;
-    margin: 20px 10px 20px 10px;
-}
+/* view profile */
 
 .card-img-left {
     height: 200px;
 }
 
+/* pagination */
+
+.pagination > .active > a
+{
+    color: black;
+    background-color: #F4C110 !Important;
+    border: solid 1px #F4C110 !Important;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #8f0857;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > li > a
+{
+    background-color: #F4C110;
+    color: black ;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
