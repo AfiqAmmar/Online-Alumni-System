@@ -17,22 +17,11 @@ body{
     border-bottom: 3px solid #b916c7;
     background-color: white;
 }
-
-.navbar .nav-item a{
-    color: #0000;
-}
   
 .navbar .navbar-toggler {
     top: .25rem;
     right: 1rem;
-}
-
-#profileIcon {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    height: 2rem;
-    padding-left: 5px;
-
+    margin-right: 1rem;
 }
 
 .btn-logout{
@@ -61,15 +50,6 @@ footer{
     padding: 30px 0 0; /* navbar height */
     box-shadow: inset -3px 0 0 rgba(163, 15, 176, .1);
     background-color: white;
-}
-  
-.sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: .5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* scrollable contents if viewport is shorter than content. */
 }
   
 .sidebar .nav-item a {
@@ -102,6 +82,7 @@ footer{
 .card-event {
     margin-top: 30px;
     border-radius: 5%;
+    min-height: 385px;
 }
 
 .card-event-title {
@@ -125,36 +106,22 @@ footer{
     box-shadow: 1px 3px 5px #888888;
 }
 
-.picture-container{
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-}
-
 .picture{
-    height: fit-content;
-    width: fit-content;
-    background-color: #999999;
-    border: 5px solid #CCCCCC;
+    position: relative;
+    object-fit: fill;
     border-radius: 5%;
-    margin: 0px auto;
+    border: 5px solid #CCCCCC;
     overflow: hidden;
     transition: all 0.2s;
-    -webkit-transition: all 0.2s;
 }
+
 .picture:hover{
     border-color: #2ca8ff;
 }
 
 .picture input[type="file"] {
     cursor: pointer;
-    display: block;
-    height: 100%;
-    left: 0;
     opacity: 0 !important;
-    position: absolute;
-    top: 0;
-    width: 100%;
 }
 
 /* manage events */
@@ -166,8 +133,8 @@ footer{
 }
 
 .btn-view {
-    background-color: #eb078b;
-    color: white !important;
+    background-color: #f4c110;
+    /*color: white !important;*/
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100px;
@@ -180,7 +147,7 @@ footer{
     font-size: xx-large;
     position: fixed;
     bottom: 50px;
-    right: 40px;
+    left: 80px;
     height: 60px;
     width: 60px;
     margin-bottom: 30px;
@@ -231,4 +198,3 @@ footer{
 .card-img-left {
     height: 200px;
 }
-
