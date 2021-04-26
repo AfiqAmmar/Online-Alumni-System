@@ -16,36 +16,25 @@
 <body>
     <header class="navbar sticky-top navbar-expand-md navbar-light">
         <a class="navbar-brand col-md-3 col-lg-2 me-auto px-3 py-2" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="profileIcon"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
-            </li>
-        </ul>
         <button class="btn btn-logout text-white">log out</button>
     </header>
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse navbar-collapse">
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item px-2 py-1">
                             <a class="nav-link active" aria-current="page" href="#">
-                            <span data-feather="home"></span>
-                            Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item px-2 py-1">
-                            <a class="nav-link" href="#">
                             <span data-feather="users"></span>
                             Manage Alumni
                             </a>
                         </li>
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="manageEvents.html">
                             <span data-feather="calendar"></span>
                             Manage Events
                             </a>
@@ -55,16 +44,16 @@
             </nav>
         
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">insert main content here</h1>
+                <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
+                    <h2>insert main content here</h2>
                 </div>
             </main>
         </div>
     </div>
 
-    <footer class="footer mt-auto py-2 fixed-bottom text-white">
-    <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
-    <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
+    <footer class="footer mt-auto py-0 text-white">
+        <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
+        <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
     </footer>      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script>
