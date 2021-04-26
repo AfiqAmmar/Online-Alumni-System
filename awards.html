@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="manage-add-viewEvents.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Online Alumni System</title>
+</head>
+
+<body>
+    <header class="navbar sticky-top navbar-expand-md navbar-light">
+        <a class="navbar-brand col-md-3 col-lg-2 me-auto px-3 py-2" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed my-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="btn btn-logout text-white">log out</button>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item px-2 py-1">
+                            <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Manage Alumni
+                            </a>
+                        </li>
+                        <li class="nav-item px-2 py-1">
+                            <a class="nav-link active" aria-current="page" href="manageEvents.html">
+                            <span data-feather="calendar"></span>
+                            Manage Events
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-4 mb-5">
+
+                    <div class="card-event shadow px-5">
+                        <div class="card-body">
+                            <h2 class="card-event-title">Event details</h2>
+                            <form class="row g-3 text-center">
+                                <div class="picture-container d-flex justify-content-center">
+                                    <div class="picture">
+                                        <img src="image/awards.jpg" class="card-img-left" id="awardsImagePreview" alt="alumni laureate awards image">
+                                        <input type="file" id="awardsImage" class="form-control h-100 position-absolute top-0" 
+                                            onchange="document.getElementById('awardsImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="inputEventName" class="form-label"></label>
+                                  <input type="text" class="form-control" id="inputEventName" placeholder="Event name" disabled="true" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputOrg" class="form-label"></label>
+                                    <input type="text" class="form-control" id="inputOrg" placeholder="Organiser" required>
+                                </div>                       
+                                <div class="col-md-2">
+                                  <label for="inputDate" class="form-label"></label>
+                                  <input type="date" class="form-control" id="inputDate" required>
+                                </div>
+                                <div class="col-md-2">
+                                  <label for="inputStartTime" class="form-label"></label>
+                                  <input type="time" class="form-control" id="inputStartTime" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="inputEndTime" class="form-label"></label>
+                                    <input type="time" class="form-control" id="inputEndTime" required>
+                                  </div>
+                                <div class="col-md-6">
+                                    <label for="inputVenue" class="form-label"></label>
+                                    <input type="text" class="form-control" id="inputVenue" placeholder="Venue" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputDesc" class="form-label"></label>
+                                    <textarea class="form-control" id="inputDesc" rows="5" placeholder="Write a short description here..."></textarea>
+                                </div>
+                                <div class="col text-center">
+                                    <a class="btn btn-edit-update" id="btnEdit" href="#" role="button">edit</a>
+                                    <a class="btn btn-edit-update" id="btnUpdate" href="#" role="button">update</a>
+                                </div>                               
+                              </form>
+                        </div>
+                    </div>
+                    <a href="manageEvents.html" class="btn btn-previous">&laquo;</a>
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-0 text-white">
+    <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
+    <p><small><i>&copy; 2021, Afifah & Friends</i></small></p>
+    </footer>      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        feather.replace()
+
+        $(document).ready(function() {
+            $("#inputEventName").val("Alumni Laureate Awards Nomination");
+            $("#inputOrg").val("FCSIT UM");
+            $("#inputDate").val("2021-04-29");
+            $("#inputStartTime").val("20:00");
+            $("#inputEndTime").val("23:00");
+            $("#inputVenue").val("FCSIT UM Alumni Website");
+
+            var desc = "Do you know of an alumni who has achieved excellence in their chosen field, or made an outstanding contributions to society? " +
+            "We are calling for nominations of Alumni Laureate Awards. The award categories are:\n\n" +
+            "Alumni of the Year:\nAlumni who has shown exceptional leadership qualities, provided service to the community " +
+            "through volunteering and careers advice, or excelled in technology initiatives.\n\n" +
+            "Recent Graduate Award:\nAlumni who has graduated since 2018 and excelled in their chosen field, made an outstanding " +
+            "contributions to society or shown exceptional commitment and enthusiasm towards particular projects and causes.\n\n" +
+            "Special Excellence Award:\nIn recognition of sporting achievements, exceptional international or national work, " +
+            "technological innovations, or contribution to local community.\n\n" +
+            "Lifetime Achievement Award:\nAlumni who has demonstrated special excellence over an extended period of time.\n\n" +
+            "To nominate a distinguished alumnus, please fill out the form at https://alumni.fcsit.um.edu.my/nominate"
+
+            $("#inputDesc").val(desc);
+            
+            $("input").attr("disabled", true);
+            $("textarea").attr("disabled", true);
+            $("file").attr("disabled", true);
+        });
+
+        $("#btnEdit").on("click", function () {
+            $("input").attr("disabled", false);
+            $("textarea").attr("disabled", false);
+            $("file").attr("disabled", false);
+        });
+
+        $("#btnUpdate").on("click", function () {
+            $("input").attr("disabled", true);
+            $("textarea").attr("disabled", true);
+            $("file").attr("disabled", true);
+        });
+    </script>
+</body>
+</html>
