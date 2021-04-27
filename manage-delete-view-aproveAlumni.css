@@ -168,7 +168,7 @@ footer{
     color : #F4C110;
     background-color: white;
     border-radius: 20px;
-    border-color: black;
+    border-color: rgb(170, 168, 168);
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100px;
@@ -208,9 +208,9 @@ footer{
 
 .pagination > .active > a
 {
-    color: black;
+    color: white !important;
     background-color: #F4C110 !Important;
-    border: solid 1px #F4C110 !Important;
+    border: solid 1px #ddd !Important;
 }
 
 .pagination > li > a:focus,
@@ -225,8 +225,8 @@ footer{
 
 .pagination > li > a
 {
-    background-color: #F4C110;
-    color: black ;
+    background-color: white;
+    color: #F4C110 ;
 }
 
 .pagination > .active > a:hover
@@ -234,3 +234,14 @@ footer{
     background-color: #5A4181 !Important;
     border: solid 1px #5A4181;
 }
+
+/* modal */
+
+.modal-header{
+    background-color: #a30fb0;
+}
+
+.modal-title {
+    color: white;
+}
+
