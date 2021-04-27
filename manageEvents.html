@@ -49,7 +49,23 @@
                         <div class="col text-center">
                             <div class="card-event shadow">
                                 <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                    <a class="btn btn-delete" id="btnDelete" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">X</a>
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger">
+                                                    <h6 class="modal-title text-white" id="deleteModalLabel">Warning</h6>
+                                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body pb-0">
+                                                    <p>Are you sure you want to delete this event?</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <a class="btn bg-danger text-white px-4 py-2" id="btnConfirmDelete" data-bs-dismiss="modal">Confirm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <img src="image/workshop.jpg" class="card-img-top" alt="intel AI workshop image">
                                 </div>
                                 <div class="card-body my-4">
@@ -105,7 +121,7 @@
                                     <img src="image/basketball.jpg" class="card-img-top" alt="basketball tournament image">
                                 </div>
                                 <div class="card-body my-4">
-                                    <h5 class="card-event-title">Slam Dunk!</h5>
+                                    <h5 class="card-event-title py-2">Slam Dunk!</h5>
                                     <a href="basketball.html" class="btn btn-view">view</a>
                                 </div>
                             </div>
@@ -146,7 +162,7 @@
             return new bootstrap.Tooltip(tooltipTriggerEl)
         });
 
-        $(".btn-delete").click(function(){
+        $("#btnConfirmDelete").click(function(){
             var $target = $(this).parents(".col");
             $target.hide("slow", function() { 
                 $target.remove(); 
