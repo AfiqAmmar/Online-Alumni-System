@@ -42,104 +42,105 @@
                 </div>
             </nav>
         
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-4 mb-5">
-
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">X</a>
-                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header bg-danger">
-                                                    <h6 class="modal-title text-white" id="deleteModalLabel">Warning</h6>
-                                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body pb-0">
-                                                    <p>Are you sure you want to delete this event?</p>
-                                                </div>
-                                                <div class="modal-footer justify-content-center">
-                                                    <a class="btn bg-danger text-white px-4 py-2" id="btnConfirmDelete" data-bs-dismiss="modal">Confirm</a>
+            <main class="col-md-9 col-sm-2 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 pt-3">
+                    <div class="container-fluid">
+                        
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button" data-bs-toggle="modal" data-bs-target="#deleteModal">X</a>
+                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-danger">
+                                                        <h6 class="modal-title text-white" id="deleteModalLabel">Warning</h6>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body pb-0">
+                                                        <p>Are you sure you want to delete this event?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <a class="btn bg-danger text-white px-4 py-2" id="btnConfirmDelete" data-bs-dismiss="modal">Confirm</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <img src="image/workshop.jpg" class="card-img-top cropped" alt="intel AI workshop image">
                                     </div>
-                                    <img src="image/workshop.jpg" class="card-img-top" alt="intel AI workshop image">
-                                </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title">Intel AI Workshop</h5>
-                                    <a href="workshop.html" class="btn btn-view">view</a>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">Intel AI Workshop</h5>
+                                        <a href="workshop.html" class="btn btn-view">view</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
-                                    <img src="image/reunion.png" class="card-img-top" alt="class of 2006 reunion image">
-                                </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title">Class of 2006 Reunion<br></h5>
-                                    <a href="reunion.html" class="btn btn-view">view</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
-                                    <img src="image/forum.png" class="card-img-top" alt="WIT forum image">
-                                </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title">#WITGlobalForum21</h5>
-                                    <a href="forum.html" class="btn btn-view">view</a>
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <img src="image/reunion.png" class="card-img-top cropped" alt="class of 2006 reunion image">
+                                    </div>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">Class of 2006 Reunion<br></h5>
+                                        <a href="reunion.html" class="btn btn-view">view</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <img src="image/forum.png" class="card-img-top cropped" alt="WIT forum image">
+                                    </div>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">#WITGlobalForum21</h5>
+                                        <a href="forum.html" class="btn btn-view">view</a>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
-                                    <img src="image/awards.jpg" class="card-img-top" alt="alumni laureate awards image">
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <img src="image/awards.jpg" class="card-img-top cropped" alt="alumni laureate awards image">
+                                    </div>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">Alumni Laureate Awards Nomination</h5>
+                                        <a href="awards.html" class="btn btn-view">view</a>
+                                    </div>
                                 </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title">Alumni Laureate Awards Nomination</h5>
-                                    <a href="awards.html" class="btn btn-view">view</a>
+                            </div>
+
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <img src="image/basketball.jpg" class="card-img-top cropped" alt="basketball tournament image">
+                                    </div>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">Slam Dunk!</h5>
+                                        <a href="basketball.html" class="btn btn-view">view</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col text-center">
+                                <div class="card-event shadow">
+                                    <div class="img-container">
+                                        <a class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <img src="image/series.png" class="card-img-top cropped" alt="alumni leadership series image">
+                                    </div>
+                                    <div class="card-body my-4">
+                                        <h5 class="card-event-title">Alumni Leadership Series: Pt. 3</h5>
+                                        <a href="series.html" class="btn btn-view">view</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
-                                    <img src="image/basketball.jpg" class="card-img-top" alt="basketball tournament image">
-                                </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title py-2">Slam Dunk!</h5>
-                                    <a href="basketball.html" class="btn btn-view">view</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col text-center">
-                            <div class="card-event shadow">
-                                <div class="img-container">
-                                    <a class="btn btn-delete" id="btnDelete" role="button">X</a>
-                                    <img src="image/series.png" class="card-img-top" alt="alumni leadership series image">
-                                </div>
-                                <div class="card-body my-4">
-                                    <h5 class="card-event-title">Alumni Leadership Series:<br>Pt. 3</h5>
-                                    <a href="series.html" class="btn btn-view">view</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                     <a href="addEvent.html" class="btn btn-add" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me to add a new event!">+</a>
                 </div>

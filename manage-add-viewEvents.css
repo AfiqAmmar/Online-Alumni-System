@@ -82,7 +82,7 @@ footer{
 .card-event {
     margin-top: 30px;
     border-radius: 5%;
-    min-height: 385px;
+    min-height: 535px;
 }
 
 .card-event-title {
@@ -124,9 +124,13 @@ footer{
 /* manage events */
 
 .card-img-top {
-    height: 200px;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
+}
+
+.cropped {
+    height: 350px; /* height of container */
+    object-fit: cover;
 }
 
 .btn-view {
