@@ -2,7 +2,7 @@
     height: 208px;
     width: 200px;
     background-color: #c4c4c4;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .details{
@@ -16,7 +16,7 @@
 .card-img-top{
     height: 12rem;
     width: auto;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .card-header{
@@ -34,7 +34,7 @@
 }
 
 #addImagePreview{
-    object-fit: fill;
+    object-fit: cover;
 }
 
 

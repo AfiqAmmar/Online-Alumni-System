@@ -48,11 +48,19 @@
             <div class="row mx-1 my-2">
                 <div class="col-md-8 form-group">
                     <label for="inputCourse" class="col-form-label">Course:</label>
-                    <input type="text" class="form-control" id="inputCourse" value="Bachelor of Computer Science(Software Engineering)">
+                    <!-- <input type="text" class="form-control" id="inputCourse" value="Bachelor of Computer Science(Software Engineering)"> -->
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Bachelor of Computer Science (Software Engineering)</option>
+                        <option value="1">Bachelor of Computer Science (Artificial Intelligence)</option>
+                        <option value="2">Bachelor of Computer Science (Computer System and Network)</option>
+                        <option value="3">Bachelor of Computer Science (Information Systems)</option>
+                        <option value="4">Bachelor of Information Technology (Multimedia)</option>
+                        <option value="5">Bachelor of Computer Science (Data Science)</option>
+                    </select>
                 </div>
                 <div class="col-md-4 form-group">
                     <label for="inputGradYear" class="col-form-label">Graduation Year:</label>
-                    <input type="text" class="form-control" id="inputGradYear" value="2023">
+                    <input type="text" class="form-control form-select" name="inputGradYear" id="inputGradYear">
                 </div>
             </div>
             <div class="row mx-1 my-2">
