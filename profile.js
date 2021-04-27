@@ -3,3 +3,11 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
+$(document).ready(function(){
+$("#inputGradYear").datepicker({
+    format: "yyyy",
+    viewMode: "years", 
+    minViewMode: "years",
+    autoclose:true
+});   
+})
