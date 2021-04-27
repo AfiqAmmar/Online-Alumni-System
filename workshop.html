@@ -44,51 +44,53 @@
         
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-4 mb-5">
+                    <div class="container-fluid">
 
-                    <div class="card-event shadow px-5 text-center">
-                        <div class="card-body">
-                            <h2 class="card-event-title py-3">Event details</h2>
-                            <form class="row g-3 text-center">
-                                <div class="picture-container d-flex justify-content-center">
-                                    <div class="picture">
-                                        <img src="image/workshop.jpg" class="card-img-left" id="workshopImagePreview" alt="intel AI workshop image">
-                                        <input type="file" id="workshopImage" class="form-control h-100 position-absolute top-0" 
-                                            onchange="document.getElementById('workshopImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                        <div class="card-event shadow px-5 text-center">
+                            <div class="card-body">
+                                <h2 class="card-event-title py-3">Event details</h2>
+                                <form class="row g-3 text-center">
+                                    <div class="picture-container d-flex justify-content-center">
+                                        <div class="picture">
+                                            <img src="image/workshop.jpg" class="card-img-left" id="workshopImagePreview" alt="intel AI workshop image">
+                                            <input type="file" id="workshopImage" class="form-control h-100 position-absolute top-0" 
+                                                onchange="document.getElementById('workshopImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <label for="inputEventName" class="form-label"></label>
-                                  <input type="text" class="form-control" id="inputEventName" placeholder="Event name" disabled="true" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputOrg" class="form-label"></label>
-                                    <input type="text" class="form-control" id="inputOrg" placeholder="Organiser" required>
-                                </div>                       
-                                <div class="col-md-2">
-                                  <label for="inputDate" class="form-label"></label>
-                                  <input type="date" class="form-control" id="inputDate" required>
-                                </div>
-                                <div class="col-md-2">
-                                  <label for="inputStartTime" class="form-label"></label>
-                                  <input type="time" class="form-control" id="inputStartTime" required>
-                                </div>
-                                <div class="col-md-2">
-                                    <label for="inputEndTime" class="form-label"></label>
-                                    <input type="time" class="form-control" id="inputEndTime" required>
-                                  </div>
-                                <div class="col-md-6">
-                                    <label for="inputVenue" class="form-label"></label>
-                                    <input type="text" class="form-control" id="inputVenue" placeholder="Venue" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputDesc" class="form-label"></label>
-                                    <textarea class="form-control" id="inputDesc" rows="5" placeholder="Write a short description here..."></textarea>
-                                </div>
-                                <div class="col text-center">
-                                    <a class="btn btn-edit-update" id="btnEdit" href="#" role="button">edit</a>
-                                    <a class="btn btn-edit-update" id="btnUpdate" href="#" role="button">update</a>
-                                </div>                               
-                              </form>
+                                    <div class="col-md-6">
+                                    <label for="inputEventName" class="form-label"></label>
+                                    <input type="text" class="form-control" id="inputEventName" placeholder="Event name" disabled="true" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputOrg" class="form-label"></label>
+                                        <input type="text" class="form-control" id="inputOrg" placeholder="Organiser" required>
+                                    </div>                       
+                                    <div class="col-md-2">
+                                    <label for="inputDate" class="form-label"></label>
+                                    <input type="date" class="form-control" id="inputDate" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <label for="inputStartTime" class="form-label"></label>
+                                    <input type="time" class="form-control" id="inputStartTime" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="inputEndTime" class="form-label"></label>
+                                        <input type="time" class="form-control" id="inputEndTime" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputVenue" class="form-label"></label>
+                                        <input type="text" class="form-control" id="inputVenue" placeholder="Venue" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputDesc" class="form-label"></label>
+                                        <textarea class="form-control" id="inputDesc" rows="5" placeholder="Write a short description here..."></textarea>
+                                    </div>
+                                    <div class="col text-center">
+                                        <a class="btn btn-edit-update" id="btnEdit" href="#" role="button">edit</a>
+                                        <a class="btn btn-edit-update" id="btnUpdate" href="#" role="button">update</a>
+                                    </div>                               
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <a href="manageEvents.html" class="btn btn-previous">&laquo;</a>
