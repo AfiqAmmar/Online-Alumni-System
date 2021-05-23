@@ -1,3 +1,25 @@
+<?php
+
+    session_start();
+    $emails = $_SESSION['email'];
+    include_once("config\config.php");
+    $sql = "SELECT * FROM user WHERE user_email='$emails'";
+    $result = mysqli_query($mysqli, $sql);
+    while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+        $name = $res['user_name'];
+        $course = $res['user_course'];
+        $year = $res['user_year'];
+        $bio = $res['user_bio'];
+        $city = $res['user_city'];
+        $state = $res['user_state'];
+        $email = $res['user_email'];
+        $phone = $res['user_phone'];
+        $linkedin = $res['user_linkedin'];
+        $image = $res['user_image'];
+        $password = $res["user_password"];
+    }
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +73,7 @@
     </div>      
   </nav>
 
-  <div class="container-fluid d-flex justify-content-center">
+  <div class="container-fluid d-flex justify-content-center">    
     <main>
         <div class="row top_description mt-5">  
             <div class="row my-0">
@@ -61,7 +83,7 @@
                 </span>
               </div>
               <div class="col">
-                <a href="editForm.html" class="text-dark d-flex justify-content-end" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-offset="300,0" title="Click here to manage and setup profile"><small>Manage Profile</small></a>
+                <a href="editForm.php" class="text-dark d-flex justify-content-end" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-offset="300,0" title="Click here to manage and setup profile"><small>Manage Profile</small></a>
               </div>
             </div>
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
@@ -74,12 +96,15 @@
                       <div class="modal-body">
                         <div class="picture-container">
                           <div class="picture">
-                              <div class="col d-flex justify-content-center">
-                                <img src="image/blankImage.png" class="card-img-left rounded-circle align-items-center" id="addImagePreview" alt="add image preview" height="208px" width="208px">
-                              </div>
-                              <div class="mt-3">
-                                <input type="file" id="addImage" class="form-control" onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
-                              </div>
+                              <form action="uploadImage.php" method="POST" enctype="multipart/form-data">
+                                <div class="col d-flex justify-content-center">
+                                  <img src="image/blankImage.png" class="card-img-left rounded-circle align-items-center" id="addImagePreview" alt="add image preview" height="208px" width="208px">
+                                </div>
+                                <div class="mt-3">
+                                  <input type="file" name="profileImage" id="addImage" class="form-control" onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                                  <input class="updateImage text-white my-3 float-end" type="submit" name="updateImage" value="Confirm">
+                                </div>
+                              </form>
                           </div>
                       </div>
                       </div>
@@ -87,14 +112,14 @@
               </div>
             </div>
             <div class="col-md-2 offset-md-1 col-lg-2 profile_picture">
-                <img src="image/icon.png" class="rounded-circle" alt="Profile Picture"><br>
+                <img src="user-image/<?php echo $image; ?>" class="rounded-circle" alt="Profile Picture"><br>
             </div>
             <div class="col-sm-5 col-md-6 offset-md-1 description">
-                <label for="Name" class="col-md-7"><h2>Nur Afifah</h2></label>
-                <label for="Course" id="course">Bachelor of Computer Science(Software Engineering)</label><br>
-                <label for="Graduation_Year"><p>Class of <span>2015</span></p></label><br>
-                <label for="Bio"><p>Junior Developer</p></label><br>
-                <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px">Kajang, Selangor</p></label><br>
+                <label for="Name" class="col-md-7"><h2><?php echo $name;?></h2></label>
+                <label for="Course" id="course"><?php echo $course;?></label><br>
+                <label for="Graduation_Year"><p>Class of <span><?php echo $year;?></span></p></label><br>
+                <label for="Bio"><p><?php echo $bio;?></p></label><br>
+                <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px"><?php echo $city.", ".$state;?></p></label><br>
                 <span  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click here to see contact info">
                   <a href="" class="text-dark" data-bs-toggle="modal" data-bs-target="#contactModal">Contact info</a>
                 </span>
@@ -112,7 +137,7 @@
                                       <label for="labelEmail" class="col-form-label">Email:</label>
                                   </div>
                                   <div class="col-md-4">
-                                      <label for="Email" class="col-form-label">afifah@gmail.com</label>
+                                      <label for="Email" class="col-form-label"><?php echo $email;?></label>
                                   </div>
                               </div>
                               <div class="row py-2">
@@ -120,7 +145,7 @@
                                       <label for="labelPhone" class="col-form-label">Phone Number:</label>
                                   </div>
                                   <div class="col-md-4">
-                                      <label for="Email" class="col-form-label">0123456789</label>
+                                      <label for="Email" class="col-form-label"><?php echo $phone;?></label>
                                   </div>
                               </div>
                               <div class="row py-2">
@@ -128,7 +153,7 @@
                                       <label for="labelLinkedIn" class="col-form-label">LinkedIn:</label>
                                   </div>
                                   <div class="col-md-4">
-                                      <label for="LinkedIn" class="col-form-label">afifah@linkedin.com</label>
+                                      <label for="LinkedIn" class="col-form-label"><?php echo $linkedin;?></label>
                                   </div>
                                 </div>
                             </div>
