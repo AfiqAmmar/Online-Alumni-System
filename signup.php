@@ -26,37 +26,39 @@
                     <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="7%"><img src="image/FSKTM_Logo.png" width="15%"></a></h1>
                     <div class="row">
                         <div class="col">
+                            <form action="processSignup.php" method="POST">
+
                             <div class="form-group card-text">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" id="InputName" placeholder="  enter name" required/>
+                                    <input type="text" class="form-control form-control-sm" id="InputName" name="name" placeholder="  enter name" required/>
                                 </div>
 
                                 <div class="form-group" required>
-                                    <input type="email" class="form-control form-control-sm" id="InputEmail" placeholder="  enter email" required/>
+                                    <input type="email" class="form-control form-control-sm" id="InputEmail" name="email" placeholder="  enter email" required/>
                                 </div>
             
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="  enter password" required/>
+                                    <input type="password" class="form-control form-control-sm" id="InputPassword" name="password" placeholder="  enter password" required/>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-sm" id="InputPassword2" placeholder="  reenter password" required/>
+                                    <input type="password" class="form-control form-control-sm" id="InputPassword2" name="rpassword" placeholder="  reenter password" required/>
                                 </div>
 
                                 <div class="mb-4">
-                                    <select class="form-select" aria-label="Default select example" style="font-size: 14px;">
+                                    <select class="form-select" aria-label="Default select example" name="course" style="font-size: 14px;">
                                         <option selected>select course</option>
-                                        <option value="1">Bachelor of Computer Science (Artificial Intelligence)</option>
-                                        <option value="2">Bachelor of Computer Science (Computer System and Network)</option>
-                                        <option value="3">Bachelor of Computer Science (Information Systems)</option>
-                                        <option value="4">Bachelor of Computer Science (Software Engineering)</option>
-                                        <option value="5">Bachelor of Information Technology (Multimedia)</option>
-                                        <option value="6">Bachelor of Computer Science (Data Science)</option>
+                                        <option value="Bachelor of Computer Science (Artificial Intelligence)">Bachelor of Computer Science (Artificial Intelligence)</option>
+                                        <option value="Bachelor of Computer Science (Computer System and Network)">Bachelor of Computer Science (Computer System and Network)</option>
+                                        <option value="Bachelor of Computer Science (Information Systems)">Bachelor of Computer Science (Information Systems)</option>
+                                        <option value="Bachelor of Computer Science (Software Engineering)">Bachelor of Computer Science (Software Engineering)</option>
+                                        <option value="Bachelor of Information Technology (Multimedia)">Bachelor of Information Technology (Multimedia)</option>
+                                        <option value="Bachelor of Computer Science (Data Science)">Bachelor of Computer Science (Data Science)</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-4">
-                                        <input class="form-control form-select" style="font-size: 14px;" name="datepicker" id="datepicker" placeholder="choose graduation year" required/>
+                                        <input class="form-control form-select" style="font-size: 14px;" name="year" id="datepicker" placeholder="choose graduation year" required/>
 
                                         <script>
                                         $(document).ready(function(){
@@ -71,14 +73,27 @@
                                 </div>
 
                             </div>
+            
                         </div>
                         <div class="col"><br><br><br>
-                            <button type="submit" class="btn btn-signup text-white" style="width: 60%; height: 40px;"  data-bs-toggle="modal" data-bs-target="#alertModal">sign up</button><br><br>
-                            <h class="text-center" style="font-size: 13px;">already have have an account?</h><br>
-                            <a href="login.html" type="button" class="btn btn-login text-white">log in</a>
-                        </div>
+                            <?php
+                                $action=isset($_GET['action']) ? $_GET['action'] : "";
 
-                        <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+                                if($action == "signup_failed"){?>
+
+                                <html>
+                                    <div class="alert alert-danger" role="alert" style="font-size: 13px;">Passwords did not match. <br>Please try again.</div>
+                                </html>
+                            <?php  
+                                }
+                            ?>
+                            <button type="submit" class="btn btn-signup text-white" style="width: 60%; height: 40px;"  >sign up</button><br><br>
+                            <h class="text-center" style="font-size: 13px;">already have have an account?</h><br>
+                            <a href="login.php" type="button" class="btn btn-login text-white">log in</a>
+                        </div>
+                    </form>
+
+                        <!-- <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #a30fb0;">
@@ -92,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                          </div>
+                          </div> -->
 
                     </div>
                 </div>

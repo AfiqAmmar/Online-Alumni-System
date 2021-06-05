@@ -19,59 +19,43 @@
             <div class="card login-form shadow p-3 mb-5">
                 <div class="card-body">
                     <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
+                    <form action="processLogin.php" method="POST">
+                    <?php
+                        $action=isset($_GET['action']) ? $_GET['action'] : "";
+
+                        if($action == "login_failed"){?>
+                            <script>
+                                alert("Incorrect username or password!")
+                            </script>
+                    <?php  
+                    }
+                    ?>
+
                     <div class="form-group card-text">
                       <div class="mb-4">
-                        <select class="form-select" style="font-size: 14px;">
+                        <select class="form-select" name="role" style="font-size: 14px;">
                             <option disabled hidden selected>role</option>
                             <option value="alumni">Alumni</option>
                             <option value="admin">Administrator</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-sm" id="InputEmail" placeholder="email" required/>
+                        <input type="email" class="form-control form-control-sm" id="InputEmail" placeholder="email" name="email" required/>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="password" required/>
+                        <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="password" name="password" required/>
                         <a href="#" style="float: right; font-size: 12px;">forgot password?</a><br>
                     </div>
                         <button type="submit" onclick="getInfo()" class="btn btn-login text-white" style="width: 60%;">log in</button><br>
                         <h class="text-center" style="font-size: 13px;">don't have an account?</h><br>
-                        <a href="signup.html" type="button" class="btn btn-signup text-white">sign up</a>
+                        <a href="signup.php" type="button" class="btn btn-signup text-white">sign up</a>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
     </div>
-    <script> // sample email and password just for project part 1 purposes
-        var account = [
-            {email: "afifah@gmail.com", password: "afifah"},
-            {email: "admin@gmail.com", password: "adminpassword"}
-        ]
-
-        function getInfo(){
-            var role = document.querySelector('select')
-            var email = document.getElementById("InputEmail").value
-            var password = document.getElementById("InputPassword").value
-
-            role = role.options[role.selectedIndex].text
-
-            for(var i = 0; i < account.length; i++){
-                if(role == "Alumni" && email == account[i].email && password == account[i].password){
-                    console.log(email + " successfully logged in")
-                    location.assign("Homepage.html") // use assign method instead of replace so there is a back option 
-                    return
-                }
-                if(role == "Administrator" && email == account[i].email && password == account[i].password){
-                    console.log(email + " successfully logged in")
-                    location.assign("manageEvents.html")
-                    return
-                }
-            }
-            alert("incorrect username or password!")
-        }
-
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
