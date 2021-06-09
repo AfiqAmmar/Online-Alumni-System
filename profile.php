@@ -18,6 +18,44 @@
         $image = $res['user_image'];
         $password = $res["user_password"];
     }
+    
+    $messageFile = "";
+    if(isset($_POST['updateImage'])){
+      $img_name = $_FILES['profileImage']['name'];
+      $img_size = $_FILES['profileImage']['size'];
+      $tmp_name = $_FILES['profileImage']['tmp_name'];
+      $img_data = file_get_contents($tmp_name);
+      $img_error = $_FILES['profileImage']['error'];
+
+      
+      
+      if($img_error == 0){
+          if($img_size > 125000){
+            $messageFile = "Your file is too large";
+          }
+          else{
+              $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+              $img_ex_lc = strtolower($img_ex);
+              $allowed_ex = array("jpg", "jpeg", "png");
+  
+              if(in_array($img_ex_lc, $allowed_ex)){
+                  $dest = "user-image/$img_name";
+                  move_uploaded_file($tmp_name, $dest);
+                  $sql = "UPDATE user SET user_image = '$img_name' WHERE user_email='$emails'";
+                  $result = mysqli_query($mysqli, $sql);
+                  header("Location: profile.php");
+                  echo "success";
+                  mysqli_close($mysqli);
+              }
+              else{
+                  $messageFile = "Wrong file type";
+              }
+          }
+      }
+      else{
+        $messageFile = "Error occured, try again";
+      }
+  }
 ?>
 
 <html lang="en">
@@ -88,7 +126,7 @@
             </div>
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                  <div class="modal-content">
+                  <div class="modal-content" id="modalPicture">
                       <div class="modal-header">
                           <h6 class="modal-title text-white" id="imageModalLabel">Edit Image</h6>
                           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -96,13 +134,17 @@
                       <div class="modal-body">
                         <div class="picture-container">
                           <div class="picture">
-                              <form action="uploadImage.php" method="POST" enctype="multipart/form-data">
+                              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                 <div class="col d-flex justify-content-center">
-                                  <img src="image/blankImage.png" class="card-img-left rounded-circle align-items-center" id="addImagePreview" alt="add image preview" height="208px" width="208px">
+                                  <img src="user-image/<?php echo $image; ?>" class="card-img-left rounded-circle align-items-center" id="addImagePreview" alt="add image preview" height="208px" width="208px">
                                 </div>
                                 <div class="mt-3">
                                   <input type="file" name="profileImage" id="addImage" class="form-control" onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                   <input class="updateImage text-white my-3 float-end" type="submit" name="updateImage" value="Confirm">
+                                  <p class="text-danger"><?php 
+                                  echo $messageFile;
+                                  $messageFile = "";
+                                  ?></p>
                                 </div>
                               </form>
                           </div>
@@ -119,151 +161,49 @@
                 <label for="Course" id="course"><?php echo $course;?></label><br>
                 <label for="Graduation_Year"><p>Class of <span><?php echo $year;?></span></p></label><br>
                 <label for="Bio"><p><?php echo $bio;?></p></label><br>
-                <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px"><?php echo $city.", ".$state;?></p></label><br>
-                <span  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Click here to see contact info">
-                  <a href="" class="text-dark" data-bs-toggle="modal" data-bs-target="#contactModal">Contact info</a>
-                </span>
-                <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h6 class="modal-title text-white" id="contactModalLabel">Contact info</h6>
-                              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="details">
-                              <div class="row py-2">
-                                  <div class="col-md-3">
-                                      <label for="labelEmail" class="col-form-label">Email:</label>
-                                  </div>
-                                  <div class="col-md-4">
-                                      <label for="Email" class="col-form-label"><?php echo $email;?></label>
-                                  </div>
-                              </div>
-                              <div class="row py-2">
-                                  <div class="col-md-3">
-                                      <label for="labelPhone" class="col-form-label">Phone Number:</label>
-                                  </div>
-                                  <div class="col-md-4">
-                                      <label for="Email" class="col-form-label"><?php echo $phone;?></label>
-                                  </div>
-                              </div>
-                              <div class="row py-2">
-                                  <div class="col-md-3">
-                                      <label for="labelLinkedIn" class="col-form-label">LinkedIn:</label>
-                                  </div>
-                                  <div class="col-md-4">
-                                      <label for="LinkedIn" class="col-form-label"><?php echo $linkedin;?></label>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px"
+                 width="20px"><?php echo $city.", ".$state;?></p></label><br>
             </div>
           </div>
          
         <hr class="border border-dark">
-        <div class="jobs ml-3">
-          <div class="title mt-4 mb-2">
-            <h4>Jobs you added:</h4>
+        <div class="offset-md-4 contacts">
+          <div class="card shadow mx-3 ml-5" style="width: 35rem; height: auto;">
+            <div class="card-header">
+              <h5 class="mx-2 my-2 text-white">Contact Info</h5>
+            </div>
+            <div class="card-body">
+              <div class="row py-1">
+                <div class="col-md-5">
+                  <label for="labelEmail" class="col-form-label">Email:</label>
+                </div>
+                <div class="col-md-5">
+                  <label for="Email" class="col-form-label"><?php echo $email;?></label>
+                </div>
+              </div>
+              <div class="row py-2">
+                <div class="col-md-5">
+                  <label for="labelPhone" class="col-form-label">Phone Number:</label>
+                </div>
+                <div class="col-md-4">
+                  <label for="Email" class="col-form-label"><?php echo $phone;?></label>
+                </div>
+              </div>
+              <div class="row py-2">
+                <div class="col-md-5">
+                  <label for="labelLinkedIn" class="col-form-label">LinkedIn:</label>
+                </div>
+                <div class="col-md-5">
+                  <label for="LinkedIn" class="col-form-label"><?php echo $linkedin;?></label>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="job-list">
-            <div class="row">
-              <div class="col d-flex justify-content-center my-3 mx-2">
-                <div class="card shadow" style="width: 25rem; height: auto;">
-                  <div class="card-header text-white">
-                    <h6></h6>
-                  </div>
-                  <img src="image/c3.jpg" class="image-job card-img-top" alt="Company Logo">
-                  <div class="card-body">
-                    <h5 class="card-title"><strong>IT Support Executive</strong></h5>
-                    <div class="card-text">
-                      <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
-                      <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
-                      <hr>
-                    </div>
-                    <div class="row mb-0">
-                      <div class="col d-flex justify-content-center">
-                        <a href="View JobAd(3).html" class="btn btn-more text-white">Update</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col d-flex justify-content-center my-3 mx-2">
-                <div class="card shadow" style="width: 25rem; height: auto;">
-                  <div class="card-header text-white">
-                    <h6></h6>
-                  </div>
-                  <img src="image/c2.jpg" class="image-job card-img-top" alt="Company Logo">
-                  <div class="card-body">
-                    <h5 class="card-title"><strong>Information Technology (I.T.)</strong></h5>
-                    <div class="card-text">
-                      <h6><strong>ExxonMobil Malaysia</strong></h6>
-                      <p> I.T. Risk Management and Security Server, Storage & Backup</p>
-                      <hr>
-                    </div>
-                    <div class="row mb-0">
-                      <div class="col d-flex justify-content-center">
-                        <a href="View JobAd(2).html" class="btn btn-more text-white">Update</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col d-flex justify-content-center my-3 mx-2">
-                <div class="card shadow" style="width: 25rem; height: auto;">
-                  <div class="card-header text-white">
-                    <h6></h6>
-                  </div>
-                  <img src="image/c2.jpg" class="image-job card-img-top" alt="Company Logo">
-                  <div class="card-body">
-                    <h5 class="card-title"><strong>Information Technology (I.T.)</strong></h5>
-                    <div class="card-text">
-                      <h6><strong>ExxonMobil Malaysia</strong></h6>
-                      <p> I.T. Risk Management and Security Server, Storage & Backup</p>
-                      <hr>
-                    </div>
-                    <div class="row mb-0">
-                      <div class="col d-flex justify-content-center">
-                        <a href="View JobAd(2).html" class="btn btn-more text-white">Update</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col d-flex justify-content-center my-3 mx-2">
-                <div class="card shadow" style="width: 25rem; height: auto;">
-                  <div class="card-header text-white">
-                    <h6></h6>
-                  </div>
-                  <img src="image/c3.jpg" class="image-job card-img-top" alt="Company Logo">
-                  <div class="card-body">
-                    <h5 class="card-title"><strong>IT Support Executive</strong></h5>
-                    <div class="card-text">
-                      <h6><strong>Nippon Express (M) Sdn Bhd</strong></h6>
-                      <p>Knowledge in Operating system such as Windows, Windows server and Linux</p>
-                      <hr>
-                    </div>
-                    <div class="row mb-0">
-                      <div class="col d-flex justify-content-center">
-                        <a href="View JobAd(3).html" class="btn btn-more text-white">Update</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>  
         </div>
     </main>
   </div>
 
-  <footer class="footer text-white">
+  <footer class="footer fixed-bottom text-white">
     <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
     <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
   </footer>
