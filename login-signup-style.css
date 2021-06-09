@@ -17,14 +17,21 @@ form{
 
 .login-form{
     width: 380px;
-    height: 500px;
+    height: fit-content;
     margin: 20px;
     border-radius: 20px !important;
 }
 
 .signup-form{
     width: 850px;
-    height: 510px;
+    height: fit-content;
+    margin: 20px;
+    border-radius: 20px !important;
+}
+
+.invalid-form{
+    width: 380px;
+    height: 380px;
     margin: 20px;
     border-radius: 20px !important;
 }
