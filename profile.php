@@ -56,6 +56,7 @@
         $messageFile = "Error occured, try again";
       }
   }
+  mysqli_close($mysqli);
 ?>
 
 <html lang="en">

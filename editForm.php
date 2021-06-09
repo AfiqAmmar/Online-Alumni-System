@@ -18,17 +18,12 @@
         $image = $res['user_image'];
         $password = $res["user_password"];
     }
-    echo $state;
-    echo $bio;
 
     $messageErrName = "";
     $messageErrEmail = "";
     $messageErrPass = "";
     $messageErrPassRep = "";
     $messageErrYear = "";
-    function function_alert($message) {
-        echo "<script>alert('$message');</script>";
-    }
     if(isset($_POST['submitEdit'])){
         $nameUp =  $_POST['inputName'];
         $emailUp = $_POST['inputEmail'];
@@ -64,8 +59,8 @@
                             }
                             else{
                                 $hashedPassword = sha1($passwordUp);
-                                // $sqlUp = "UPDATE user SET user_name = '$nameUp' WHERE user_email='$emails'";
-                                $sqlUp = "UPDATE user SET user_email = '$emailUp', user_password = '$hashedPassword', user_name = '$nameUp', user_course = '$courseUp', user_year = '$yearUp', user_city = '$cityUp', user_state = '$stateUp', user_phone = '$phoneUp', user_bio = '$bioUp' WHERE user_email='$emails'";
+                                $sqlUp = "UPDATE user SET user_email = '$emailUp', user_password = '$hashedPassword', user_name = '$nameUp', user_course = '$courseUp',
+                                user_year = '$yearUp', user_city = '$cityUp', user_state = '$stateUp', user_phone = '$phoneUp', user_bio = '$bioUp' WHERE user_email='$emails'";
                                 $resultUp = mysqli_query($mysqli, $sqlUp);
                                 $sqlUpLink = "UPDATE user SET user_linkedin = '$linkedinUp' WHERE user_email='$emailUp'";
                                 $resultUpLink = mysqli_query($mysqli, $sqlUpLink);
@@ -75,7 +70,8 @@
                             }
                         }
                         else{
-                                $sqlUp = "UPDATE user SET user_email = '$emailUp', user_name = '$nameUp', user_course = '$courseUp', user_year = '$yearUp', user_city = '$cityUp', user_state = '$stateUp', user_phone = '$phoneUp', user_bio = '$bioUp' WHERE user_email='$emails'";
+                                $sqlUp = "UPDATE user SET user_email = '$emailUp', user_name = '$nameUp', user_course = '$courseUp', user_year = '$yearUp', user_city = '$cityUp',
+                                user_state = '$stateUp', user_phone = '$phoneUp', user_bio = '$bioUp' WHERE user_email='$emails'";
                                 $resultUp = mysqli_query($mysqli, $sqlUp);
                                 $sqlUpLink = "UPDATE user SET user_linkedin = '$linkedinUp' WHERE user_email='$emailUp'";
                                 $resultUpLink = mysqli_query($mysqli, $sqlUpLink);
@@ -104,6 +100,7 @@
             $messageErrDel = "Your password did not match, try again";
         }
     }
+    mysqli_close($mysqli);
 ?>
 
 <html lang="en">
@@ -210,7 +207,6 @@
                         <div class="col form-group">
                             <label for="inputBio" class="col-form-label">Bio:</label>
                             <input type="text" class="form-control" name="inputBio" value=<?php echo $bio ?>>
-                            <?php echo $bio ?>
                         </div>
                     </div>
                     <div class="row mx-1 my-2">
