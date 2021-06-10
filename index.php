@@ -23,6 +23,17 @@
       </div>      
     </nav>
 
+    <?php
+      $action=isset($_GET['action']) ? $_GET['action'] : "";
+
+        if($action == "inactive"){?>
+          <html>
+            <div class="alert alert-danger" role="alert" style="font-size: 14px; text-align: center;">Your account has not been approved.<br>Please try again later.</div>
+          </html>
+        <?php  
+        }
+        ?>
+
     <div class="container" style="margin-top: 20px;">
       <div class="row">
         <div class="col-sm" style= "margin: auto; margin-right: 5%;">
