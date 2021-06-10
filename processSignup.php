@@ -43,9 +43,9 @@
                 <div class="global-container">
                     <div class="card invalid-form shadow p-3 mb-5">
                         <div class="card-body">
-                            <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
+                            <h1 class="card-title text-center"><a href="index.php"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
                             <h5>Email already exists.<br>Please log in.</h5><br><br>
-                            <a href="login.html" type="button" class="btn btn-login text-white">log in</a>
+                            <a href="login.php" type="button" class="btn btn-login text-white">log in</a>
                         </div>
                     </div>
                 </div>
@@ -89,9 +89,9 @@
                         <div class="global-container">
                             <div class="card invalid-form shadow p-3 mb-5">
                                 <div class="card-body">
-                                    <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
+                                    <h1 class="card-title text-center"><a href="index.php"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
                                     <br><h5>Registration pending.<br>Please wait for admin approval.</h5><br><br>
-                                    <a href="index.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: auto; width: auto; font-weight: bold; font-size: 13px;">back to home</a>
+                                    <a href="index.php" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: auto; width: auto; font-weight: bold; font-size: 13px;">back to home</a>
                                 </div>
                             </div>
                         </div>
