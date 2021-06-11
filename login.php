@@ -18,14 +18,14 @@
         <div class="global-container">
             <div class="card login-form shadow p-3 mb-5">
                 <div class="card-body">
-                    <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
+                    <h1 class="card-title text-center"><a href="index.php"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
                     <form action="processLogin.php" method="POST">
                     <?php
                         $action=isset($_GET['action']) ? $_GET['action'] : "";
 
                         if($action == "login_failed"){?>
                             <script>
-                                alert("Incorrect username or password!")
+                                alert("Incorrect email or password!")
                             </script>
                     <?php  
                     }

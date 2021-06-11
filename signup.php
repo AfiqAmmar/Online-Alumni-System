@@ -23,7 +23,7 @@
         <div class="global-container">
             <div class="card signup-form shadow p-3 mb-5">
                 <div class="card-body">
-                    <h1 class="card-title text-center"><a href="index.html"><img src="image/UM_Logo.png" width="7%"><img src="image/FSKTM_Logo.png" width="15%"></a></h1>
+                    <h1 class="card-title text-center"><a href="index.php"><img src="image/UM_Logo.png" width="7%"><img src="image/FSKTM_Logo.png" width="15%"></a></h1>
                     <div class="row">
                         <div class="col">
                             <form action="processSignup.php" method="POST">
@@ -92,22 +92,6 @@
                             <a href="login.php" type="button" class="btn btn-login text-white">log in</a>
                         </div>
                     </form>
-
-                        <!-- <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header" style="background-color: #a30fb0;">
-                                        <h6 class="modal-title text-white text-center" id="alert">Thank you for signing up!</h6>
-                                    </div>
-                                    <div class="modal-body">
-                                      <div class="details">
-                                        Please allow 1-3 days for account confirmation.<br>
-                                        <a href="index.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: auto; width: auto; font-weight: bold; font-size: 13px;">back to home</a>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div> -->
 
                     </div>
                 </div>
