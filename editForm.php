@@ -93,7 +93,7 @@
             $sqlP = "DELETE FROM user WHERE user_email='$emails'";
             $resultP = mysqli_query($mysqli, $sqlP);
             echo "<script>alert('Account has been deleted')</script>";
-            echo "<script>window.location = 'index.html'</script>";;
+            echo "<script>window.location = 'index.php'</script>";;
             session_destroy();
         }
         else{

@@ -44,6 +44,10 @@
     border-radius: 20px;
 }
 
+.contacts{
+    border-radius: 50px;
+}
+
 .card-header-editForm{
     background-color: #a30fb0;
 }
@@ -63,6 +67,11 @@
     background-color: #a30fb0;
 }
 
+.btn-cancel{
+    padding: 7px 46px 7px 46px;
+    border-color: black;
+}
+
 .btn-closed{
     background-color: #ced4da;
 }
@@ -71,3 +80,24 @@
     background-color: #a30fb0;
 }
 
+.updateImage{
+    border-radius: 20px;
+    background-color: #a30fb0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+}
+
+#submitEdit{
+    border-radius: 30px;
+    background-color: #a30fb0;
+    border: none;
+    margin-left: 10px;
+    padding: 8px 26px 8px 26px;
+}
+
+#submitDelete{
+    border-radius: 30px;
+    border: none;
+    padding: 8px 40px 8px 40px;
+}
