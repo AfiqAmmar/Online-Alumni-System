@@ -1,3 +1,4 @@
+<?php include("config.php")?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,42 +28,40 @@
 <body>  
   <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="image/asset/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/asset/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="Homepage.html">Home</a>
+                  <a class="nav-link active" aria-current="page" href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Event.html">Event</a>
+                  <a class="nav-link" href="Event.php">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Alumni.html">Alumni</a>
+                  <a class="nav-link" href="Alumni.php">Alumni</a>
                 </li>
             </ul>
             <!--Search Bar-->
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <!-- <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                  <a href="SearchPage.html" class="btn btn-close-white" role="button"> </a> -->
-                  <a href="SearchPage.html" class="btn btn-default fa fa-search" role="button"></a>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
@@ -74,7 +73,7 @@
 
 <!--Carousel for latest Event-->
 <div class="container">
-<div class="container p-3 my-3" style="background-color: rgb(0, 0, 0); height:65%; width:95%">
+<div class="container p-3 my-3" style="background-color: rgb(0, 0, 0); height:60%; width:80%">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2500" data-pause="hover" data-keyboard="true">
   
     <!-- Indicators -->
@@ -87,13 +86,13 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="image/workshop.jpg" alt="EventPage1" width=100%; height= 100%;>
+        <img src="image/event/1.png" alt="EventPage1" width=100%; height= 100%;>
       </div>
       <div class="carousel-item">
-        <img src="image/forum.png" alt="EventPage2" width=100%; height= 100%;>
+        <img src="image/event/2.png" alt="EventPage2" width=100%; height= 100%;>
       </div>
       <div class="carousel-item">
-        <img src="image/awards.jpg" alt="EventPage3" width=100%; height= 100%;>
+        <img src="image/event/3.png" alt="EventPage3" width=100%; height= 100%;>
       </div>
     </div>
     
@@ -106,7 +105,7 @@
     </a>
   </div>
   </div>
-  <a href="Event.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:right;">more events</a>
+ <!--<a href="Event.html" type="button" class="btn" style="color:black; background:#F4C110; border-radius: 25px; height: 38px; float:right;">more events</a> --> 
   <br>
   <br>
 </div>
