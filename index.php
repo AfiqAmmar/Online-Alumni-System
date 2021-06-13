@@ -32,6 +32,12 @@
           </html>
         <?php  
         }
+        if($action == "logout"){?>
+          <html>
+            <div class="alert alert-success" role="alert" style="font-size: 14px; text-align: center;">You have been logged out.<br>See you soon!</div>
+          </html>
+        <?php  
+        }
         ?>
 
     <div class="container" style="margin-top: 20px;">
