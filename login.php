@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="password" name="password" required/>
-                        <a href="#" style="float: right; font-size: 12px;">forgot password?</a><br>
+                        <!-- <a href="#" style="float: right; font-size: 12px;">forgot password?</a><br> -->
                     </div>
                         <button type="submit" onclick="getInfo()" class="btn btn-login text-white" style="width: 60%;">log in</button><br>
                         <h class="text-center" style="font-size: 13px;">don't have an account?</h><br>

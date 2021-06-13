@@ -18,6 +18,8 @@
     $rpassword = $_POST["rpassword"];
     $course = $_POST["course"];
     $year = $_POST["year"];
+    $image = "user-image/icon.png";
+    $status = "pending";
         
     $sql = "SELECT user_email FROM user WHERE user_email = '$email'";
 
@@ -67,8 +69,8 @@
                 </html><?php header("Location: signup.php? action=signup_failed");
         }else{
             $hashedpassword = sha1($password);
-            $stmt = "INSERT INTO user (user_email, user_password, user_name, user_course, user_year) 
-            VALUES ('$email','$hashedpassword','$name','$course','$year')";
+            $stmt = "INSERT INTO user (user_email, user_password, user_name, user_course, user_year, user_image, user_status)  
+            VALUES ('$email','$hashedpassword','$name','$course','$year', '$image', '$status')";
             $stmt = mysqli_query($mysqli, $stmt);?>
             <html>
             <head>

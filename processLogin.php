@@ -38,7 +38,7 @@ if($role == 'alumni'){
 }
 
 if($role == 'admin'){
-  $sql = "SELECT * FROM admin WHERE admin_email = '$email' AND admin_password = '$hashedpassword'";
+  $sql = "SELECT * FROM admin WHERE admin_email = '$email' AND admin_password = '$password'";
 
   $result = mysqli_query($mysqli, $sql);
 
