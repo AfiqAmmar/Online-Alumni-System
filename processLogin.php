@@ -10,7 +10,6 @@ $role = $_POST["role"];
 
 $hashedpassword = sha1($password);
 
-
 if($role == 'alumni'){
   $sql = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$hashedpassword'";
 
@@ -18,22 +17,19 @@ if($role == 'alumni'){
 
   if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
-      $emailr = $row["email"];
       $status = $row['user_status'];
-      if($status == 'approved'){
-        session_start();
-      $_SESSION['logged_in'] = true;
-      $_SESSION['email'] = $email;
-      echo $_SESSION['email'];
-    header("Location: profile.php");
+        if($status == 'approved'){
+          session_start();
+          $_SESSION['logged_in'] = true;
+          $_SESSION['email'] = $email;
+          echo $_SESSION['email'];
+          header("Location: Homepage.php");
+        }else{
+          header("Location: index.php? action=inactive");
+        }
     }
-    else{
-      header("Location: index.php? action=inactive");
-    }
+  }else{header("Location: login.php? action=login_failed");
   }
-}
-  else{header("Location: login.php? action=login_failed");
-}
 }
 
 if($role == 'admin'){
@@ -43,14 +39,12 @@ if($role == 'admin'){
 
   if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
-      $email = $row["email"];
       session_start();
       $_SESSION['logged_in'] = true;
       $_SESSION['email'] = $email;
     }
-    header("Location: manageEvents.html");
-  }
-  else{
+    header("Location: manageEvents.php");
+  }else{
     header("Location: login.php? action=login_failed");
   }
 }
