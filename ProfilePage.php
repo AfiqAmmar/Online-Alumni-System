@@ -1,3 +1,22 @@
+<?php
+    session_start();
+    include("config.php");
+    include("Common.php");
+   // $email = $course = $year = $bio = $city = $state = $phone = $linkedin = $image = $password = $name = "";
+    $_SESSION['email'] = $_GET['email'];
+    $common = new Common;
+    $name = $common->getValue($mysqli, 'user_name');
+    $email = $common->getValue($mysqli, 'user_email');
+    $course = $common->getValue($mysqli, 'user_course');
+    $year = $common->getValue($mysqli, 'user_year');
+    $bio = $common->getValue($mysqli, 'user_bio');
+    $city = $common->getValue($mysqli, 'user_city');
+    $state = $common->getValue($mysqli, 'user_state');
+    $phone = $common->getValue($mysqli, 'user_phone');
+    $linkedin = $common->getValue($mysqli, 'user_linkedin');
+    $image = $common->getValue($mysqli, 'user_image');
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,41 +33,39 @@
 <body>  
   <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="image/asset/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/asset/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="Homepage.html">Home</a>
+                  <a class="nav-link" href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Event.html">Event</a>
+                  <a class="nav-link" href="Event.php">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="Alumni.html">Alumni</a>
+                  <a class="nav-link active" aria-current="page" href="Alumni.php">Alumni</a>
                 </li>
             </ul>
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <!-- <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                  <a href="SearchPage.html" class="btn btn-close-white" role="button"> </a> -->
-                  <a href="SearchPage.html" class="btn btn-default fa fa-search" role="button"></a>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="index.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
@@ -61,33 +78,34 @@
         <h1></i><b> Alumni Profile </b><i class="fa fa-user"></i></h1> 
         <p class="lead">Let's Connect and get to know all of the Alumni of FSKTM UM</p>
         <hr class="my-4">
-          <div class="shadow p-3 mb-5 bg-white rounded" >
-            <h3  class="w-auto p-3" style="background-color: rgb(179, 122, 233);">Sebastion Stan</h3>
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img class="img-responsive" src="image/Profile1.jpg" alt="Boy" class="img-rounded" height="300" width="300">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body" >
-                    <h5 class="card-title">
-                      <i>Software Designer</i>
-                      </h5>
-                    <p class="card-text">
-                      <i>Graduated on 2012</i>
-                      <p>Bio</p>
-                        <ul>
-                            <li><b>Email:</b> Sebastion@gmail.com</li>
-                            <li><b>Phone Number:</b>0132203456</li>
-                            <li><b>LinkedIn:</b>Sebastion@linkedin.com</li>
-                            <li><b>Course:</b>Bachelor of Computer Science(Software Engineering)</li>
-                           </ul>
-                           <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px">Kajang, Selangor</p></label><br>
-                    </p>
-                    <p class="card-text"><small class="text-muted">Joined 8 month ago.</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
+       <input type="hidden" value="<?php echo $email; ?>">
+       <div class="shadow p-3 mb-5 bg-white rounded" >
+        <h3  class="w-auto p-3" style="background-color: rgb(179, 122, 233);"><?php echo $name; ?></h3>
+       <div class="card mb-3; col-lg-auto" style="max-width: 2000;">
+      <div class="row g-0">
+      <div class="col-md-4">
+      <img class="img-responsive" src=<?php echo $image;?> alt="" height="300" width="300">
+      </div>
+      <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $bio; ?></h5>
+        <p class="card-text">
+        <i>Graduated on <?php echo $year?> </i>
+          <ul>
+            <li><b>Email:</b> <?php echo $email?> </li>
+            <li><b>Phone Number:</b> 0<?php echo $phone?> </li>
+            <li><b>LinkedIn:</b><?php echo $linkedin?> </li>
+            <li><b>Course:</b><?php echo $course?> </li>
+            </ul>
+            <label for="Location"><p><img src="image/asset/Location.png" alt="Location Icon" height="20px" width="20px"><?php echo $city?>, <?php echo $state?></p></label><br>
+        
+        </p>
+      </div>
+      </div>
+      </div>
+      </div>
+       </div>
+
        <button style="color:black; background:#F4C110; border: 25px; height: 38px; float:left;" onclick="goBack()"> Back </button>
        <br>
             <script>
@@ -104,7 +122,7 @@
 
     <footer class="footer mt-auto py-3 fixed-bottom text-white">
       <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
-      <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
+      <p><small><i>&copy; 2021 All Right reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
