@@ -18,14 +18,13 @@ if($role == 'alumni'){
 
   if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
-      $id = $row["userid"];
-      $email = $row["email"];
+      $emailr = $row["email"];
       $status = $row['user_status'];
       if($status == 'approved'){
         session_start();
       $_SESSION['logged_in'] = true;
-      $_SESSION['id'] = $id;
       $_SESSION['email'] = $email;
+      echo $_SESSION['email'];
     header("Location: profile.php");
     }
     else{
@@ -44,11 +43,9 @@ if($role == 'admin'){
 
   if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
-      $id = $row["userid"];
       $email = $row["email"];
       session_start();
       $_SESSION['logged_in'] = true;
-      $_SESSION['id'] = $id;
       $_SESSION['email'] = $email;
     }
     header("Location: manageEvents.html");

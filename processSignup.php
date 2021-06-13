@@ -18,7 +18,7 @@
     $rpassword = $_POST["rpassword"];
     $course = $_POST["course"];
     $year = $_POST["year"];
-    $image = "user-image/icon.png";
+    $image = "icon.png";
     $status = "pending";
         
     $sql = "SELECT user_email FROM user WHERE user_email = '$email'";
