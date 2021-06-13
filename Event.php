@@ -74,7 +74,7 @@
           <ul Style="font-size: medium;">
             <li><b>Organiser:</b><?php echo $row ["event_organiser"]; ?></li>
             <li><b>Date:</b> <?php echo $row ["event_date"]; ?></li>
-            <li><b>Time:</b> <?php echo $row ["time_start"]; ?> - <?php echo $row ["time_end"]; ?></li>
+            <li><b>Time:</b> <?php echo $row ["event_start"]; ?> - <?php echo $row ["event_end"]; ?></li>
             <li><b>Venue:</b><?php echo $row ["event_venue"]; ?></li>
         
         
