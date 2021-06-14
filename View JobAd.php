@@ -1,5 +1,20 @@
-<?php  include('processJob.php');
-$emails = $_SESSION['email'];
+<?php  include('processJob.php'); 
+if (isset($_GET['view'])) {
+    $id = $_GET['view'];
+    $update = true;
+    $record = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id=$id");
+    $n = mysqli_fetch_array($record, MYSQLI_ASSOC);
+
+        $photo = $n["job_image"];
+        $title = $n["job_position"];
+        $cname = $n["company"];
+        $caddress = $n["company_Address"];
+        $citystate = $n["job_city_state"];
+        $desc = $n["job_description"];
+        $contact = $n["job_contact"];
+        $email = $n["job_email"];
+  } 
+
 ?>
 
 <!DOCTYPE html>
@@ -7,8 +22,8 @@ $emails = $_SESSION['email'];
 
 <head>
     <title>FCSIT UM Alumni</title>
+    <meta charset="utf-8">
     <link rel ="stylesheet" type="text/css" href ="job.css">
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -28,7 +43,7 @@ $emails = $_SESSION['email'];
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link"  href="Homepage.php">Home</a>
+                  <a class="nav-link" href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Event.php">Event</a>
@@ -59,84 +74,50 @@ $emails = $_SESSION['email'];
     </nav>
 
     <h1 class="my-3">Job Advertisement</h1>
-  
+<form class="row g-3 text-center"  action="processJob.php" method="POST" enctype="multipart/form-data">
+<?php $results = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id='$id'"); ?>
 
+<?php while ($row = mysqli_fetch_array($results)) { ?>
+    <div class="card mb-3" style="margin-bottom: 5%;">
 
-      <!-- send user message -->
-      <?php if (isset($_SESSION['message'])): ?>
-	    <div class="msg">
-		  <?php 
-        echo $_SESSION['message']; 
-			  unset($_SESSION['message']);
-		  ?>
-	    </div>
-      <?php endif ?>  
-
-
-            
-
-
-      <!-- display the info from database -->
-      <?php $results = mysqli_query($mysqli, "SELECT * FROM job"); ?>
-
-      <?php while ($row = mysqli_fetch_array($results)) { ?>
-
-<<<<<<< HEAD
-        <?php if($emails!=$row["user_email"]) { ?>
-        
-        <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
+    <div class="card-body mb-3" style="background-color: #c559b7;color: white;">
+    <h4><dt style="font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: #be85cc;" align="Center">Internship for Computer/IT Students</dt></h4>    
+    
+        <div class="row" align="Center">
           <div class="pictureco">
-            <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
-          </div>
-        <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
-        <li>  <?php echo $row["company"]; ?>  <br>
-            <?php echo $row["company_Address"]; ?> </li>
-          <a href="View JobAd.php?view=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">View</a></ul>
-        </div><br>
-        <?php } ?>
-        
-        <?php if($emails==$row["user_email"]) { ?>
-        
-        <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-          <div class="pictureco">
-            <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
-          </div>
-        <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
-        <li>  <?php echo $row["company"]; ?>  <br>
-            <?php echo $row["company_Address"]; ?> </li>
-          <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
-        </div><br>
-        <?php } ?>
+            <?php  echo'<img src="job-image/'.$row['job_image'].' " alt="dummycompany1" width="200" height="200" style="border-radius:50%' ;?>
 
-=======
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
+          </div> 
         </div>
-      <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
-      <li>  <?php echo $row["company"]; ?>  <br>
-           <?php echo $row["company_Address"]; ?> </li>
-        <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
-      </div><br>
->>>>>>> b2a49e5d2ec60434a27f663771508dd35428453b
-      
-       <?php } ?>
 
-       
+        <div class="row">
+    
+          <dd><?php echo $row['job_position']; ?><br>
+              <?php echo $row['company']; ?><br>
+          <?php echo $row['company_Address']; ?>, <?php echo $row['job_city_state']; ?>
 
-      <div class="card-body" align="Center">
-        <a href="Add_DeleteJob.php" type="button" class="btn btn-add text-white" name="add">Add</a>
+            <br><br>
+            <ol type="a">  
+            <ul><?php echo $row['job_description']; ?>
+            </ul><br>
+            </ol>
+
+            <?php echo $row['job_contact']; ?> &nbsp;
+            <?php echo $row['job_email']; ?>
+          </dd>
+        </div>
+
       </div>
-
-
-
     </div>
+</form>
+<?php } ?>
 
-
-    <footer class="footer fixed-bottom mt-auto py-0- text-white">
+    <footer class="footer mt-auto fixed-bottom py-0 text-white ">
         <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
         <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+       
+
 </body>
 </html>
