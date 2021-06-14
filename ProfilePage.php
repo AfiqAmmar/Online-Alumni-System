@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("config\config.php");
+    include("config.php");
     include("Common.php");
    // $email = $course = $year = $bio = $city = $state = $phone = $linkedin = $image = $password = $name = "";
     $_SESSION['email'] = $_GET['email'];
