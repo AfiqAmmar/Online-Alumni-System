@@ -15,22 +15,21 @@
   </head>
   <body>
     <div style="background-image: url(image/background.png); height:100vh">
+    <?php
+        $action=isset($_GET['action']) ? $_GET['action'] : "";
+
+        if($action == "login_failed"){?>
+            <html>
+            <div class="alert alert-danger" role="alert" style="font-size: 16px; text-align: center;">Incorrect username or password.<br>Please try again.</div>
+            </html>
+    <?php  
+    }
+    ?>
         <div class="global-container">
             <div class="card login-form shadow p-3 mb-5">
                 <div class="card-body">
                     <h1 class="card-title text-center"><a href="index.php"><img src="image/UM_Logo.png" width="20%"><img src="image/FSKTM_Logo.png" width="40%"></a></h1>
                     <form action="processLogin.php" method="POST">
-                    <?php
-                        $action=isset($_GET['action']) ? $_GET['action'] : "";
-
-                        if($action == "login_failed"){?>
-                            <script>
-                                alert("Incorrect email or password!")
-                            </script>
-                    <?php  
-                    }
-                    ?>
-
                     <div class="form-group card-text">
                       <div class="mb-4">
                         <select class="form-select" name="role" style="font-size: 14px;">

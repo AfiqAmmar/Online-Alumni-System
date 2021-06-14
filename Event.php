@@ -47,7 +47,7 @@
                 <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.php" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
@@ -74,7 +74,7 @@
           <ul Style="font-size: medium;">
             <li><b>Organiser:</b><?php echo $row ["event_organiser"]; ?></li>
             <li><b>Date:</b> <?php echo $row ["event_date"]; ?></li>
-            <li><b>Time:</b> <?php echo $row ["time_start"]; ?> - <?php echo $row ["time_end"]; ?></li>
+            <li><b>Time:</b> <?php echo $row ["event_start"]; ?> - <?php echo $row ["event_end"]; ?></li>
             <li><b>Venue:</b><?php echo $row ["event_venue"]; ?></li>
         
         

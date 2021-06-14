@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link active" aria-current="page" href="manageEvents.html">
+                            <a class="nav-link active" aria-current="page" href="manageEvents.php">
                             <span data-feather="calendar"></span>
                             Manage Events
                             </a>
@@ -50,50 +50,50 @@
                         <div class="card-event shadow px-5 text-center">
                             <div class="card-body">
                                 <h2 class="card-event-title py-3">New event details</h2>
-                                <form class="row g-3 text-center">
+                                <form action="processEvent.php" method="POST" class="row g-3 text-center" enctype="multipart/form-data">
                                     <div class="picture-container d-flex justify-content-center">
                                         <div class="picture">
                                             <img src="image/blankImage.png" class="card-img-left" id="addImagePreview" alt="add image preview">
-                                            <input type="file" id="addImage" class="form-control h-100 position-absolute top-0" 
+                                            <input type="file" id="addImage" name="event_image" class="form-control h-100 position-absolute top-0" 
                                                 onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                     <label for="inputEventName" class="form-label"></label>
-                                    <input type="text" class="form-control" id="inputEventName" placeholder="Event name" required>
+                                    <input type="text" class="form-control" id="inputEventName" name="event_name" placeholder="Event name" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputOrg" class="form-label"></label>
-                                        <input type="text" class="form-control" id="inputOrg" placeholder="Organiser" required>
+                                        <input type="text" class="form-control" id="inputOrg" name="event_organiser" placeholder="Organiser" required>
                                     </div>                       
                                     <div class="col-md-2">
                                     <label for="inputDate" class="form-label"></label>
-                                    <input type="date" class="form-control" id="inputDate" required>
+                                    <input type="date" class="form-control" id="inputDate" name="event_date" required>
                                     </div>
                                     <div class="col-md-2">
                                     <label for="inputStartTime" class="form-label"></label>
-                                    <input type="time" class="form-control" id="inputStartTime" required>
+                                    <input type="time" class="form-control" id="inputStartTime" name="event_start" required>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="inputEndTime" class="form-label"></label>
-                                        <input type="time" class="form-control" id="inputEndTime" required>
+                                        <input type="time" class="form-control" id="inputEndTime" name="event_end" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputVenue" class="form-label"></label>
-                                        <input type="text" class="form-control" id="inputVenue" placeholder="Venue" required>
+                                        <input type="text" class="form-control" id="inputVenue" name="event_venue" placeholder="Venue" required>
                                     </div>
                                     <div class="col-12">
                                         <label for="inputDesc" class="form-label"></label>
-                                        <textarea class="form-control" id="inputDesc" rows="3" placeholder="Write a short description here..."></textarea>
+                                        <textarea class="form-control" id="inputDesc" name="event_description" rows="3" placeholder="Write a short description here..."></textarea>
                                     </div>
                                     <div class="col text-center">
-                                        <button type="submit" class="btn btn-add-submit">add</button>
+                                        <button type="submit" name="add" class="btn btn-add-submit">add</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <a href="manageEvents.html" class="btn btn-previous">&laquo;</a>
+                    <a href="manageEvents.php" class="btn btn-previous">&laquo;</a>
 
                 </div>
             </main>

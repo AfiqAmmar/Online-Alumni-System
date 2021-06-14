@@ -61,7 +61,7 @@
                 <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.php" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>

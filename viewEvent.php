@@ -1,3 +1,29 @@
+<?php
+
+    session_start();
+    include("config\config.php");
+
+    if (isset($_GET['view'])) {
+        $id = $_GET['view'];
+        $sql = "SELECT * from event where event_id=$id";
+        $result = mysqli_query($mysqli, $sql);
+
+        while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $name = $res['event_name'];
+            $organiser = $res['event_organiser'];
+            $date = $res['event_date'];
+            $start = $res['event_start'];
+            $end = $res['event_end'];
+            $venue = $res['event_venue'];
+            $desc = $res['event_description'];
+            $image = $res['event_image'];
+        }
+
+        mysqli_close($mysqli);
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link active" aria-current="page" href="manageEvents.html">
+                            <a class="nav-link active" aria-current="page" href="manageEvents.php">
                             <span data-feather="calendar"></span>
                             Manage Events
                             </a>
@@ -48,57 +74,58 @@
                     <div class="card-event shadow px-5 text-center">
                         <div class="card-body">
                             <h2 class="card-event-title py-3">Event details</h2>
-                            <form class="row g-3 text-center">
+                            <form action="processEvent.php" method="POST" class="row g-3 text-center" enctype="multipart/form-data">
+                                <input type="hidden" name="event_id" value="<?php echo $id; ?>">
                                 <div class="picture-container d-flex justify-content-center">
                                     <div class="picture">
-                                        <img src="image/forum.png" class="card-img-left" id="forumImagePreview" alt="WIT forum image">
-                                        <input type="file" id="forumImage" class="form-control h-100 position-absolute top-0" 
-                                            onchange="document.getElementById('forumImagePreview').src = window.URL.createObjectURL(this.files[0])">
+                                        <img src="images/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
+                                        <input type="file" id="Image" name="event_image" class="form-control h-100 position-absolute top-0" 
+                                            onchange="document.getElementById('ImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                   <label for="inputEventName" class="form-label"></label>
-                                  <input type="text" class="form-control" id="inputEventName" placeholder="Event name" disabled="true" required>
+                                  <input type="text" class="form-control" id="inputEventName" name="event_name" placeholder="Event name" value="<?php echo $name ?>" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputOrg" class="form-label"></label>
-                                    <input type="text" class="form-control" id="inputOrg" placeholder="Organiser" required>
+                                    <input type="text" class="form-control" id="inputOrg" name="event_organiser" placeholder="Organiser" value="<?php echo $organiser ?>" required>
                                 </div>                       
                                 <div class="col-md-2">
                                   <label for="inputDate" class="form-label"></label>
-                                  <input type="date" class="form-control" id="inputDate" required>
+                                  <input type="date" class="form-control" id="inputDate" name="event_date" value="<?php echo $date ?>" required>
                                 </div>
                                 <div class="col-md-2">
                                   <label for="inputStartTime" class="form-label"></label>
-                                  <input type="time" class="form-control" id="inputStartTime" required>
+                                  <input type="time" class="form-control" id="inputStartTime" name="event_start" value="<?php echo $start ?>" required>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="inputEndTime" class="form-label"></label>
-                                    <input type="time" class="form-control" id="inputEndTime" required>
+                                    <input type="time" class="form-control" id="inputEndTime" name="event_end" value="<?php echo $end ?>" required>
                                   </div>
                                 <div class="col-md-6">
                                     <label for="inputVenue" class="form-label"></label>
-                                    <input type="text" class="form-control" id="inputVenue" placeholder="Venue" required>
+                                    <input type="text" class="form-control" id="inputVenue" name="event_venue" placeholder="Venue" value="<?php echo $venue ?>" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="inputDesc" class="form-label"></label>
-                                    <textarea class="form-control" id="inputDesc" rows="5" placeholder="Write a short description here..."></textarea>
+                                    <textarea class="form-control" id="inputDesc" name="event_description" rows="5" placeholder="Write a short description here..."><?php echo ($desc) ?></textarea>
                                 </div>
                                 <div class="col text-center">
-                                    <a class="btn btn-edit-update" id="btnEdit" href="#" role="button">edit</a>
-                                    <a class="btn btn-edit-update" id="btnUpdate" href="#" role="button">update</a>
+                                    <button type="button" name="edit" id="btnEdit" class="btn btn-edit-update">edit</button>
+                                    <button type="submit" name="update" id="btnUpdate" class="btn btn-edit-update">update</button>
                                 </div>                               
                               </form>
                         </div>
                     </div>
-                    <a href="manageEvents.html" class="btn btn-previous">&laquo;</a>
+                    <a href="manageEvents.php" class="btn btn-previous">&laquo;</a>
                     
                 </div>
             </main>
         </div>
     </div>
 
-    <footer class="footer mt-auto fixed-bottom py-0 text-white">
+    <footer class="footer text-white">
     <p class="float-end"><small><i><a class="text-white" href="#" onclick="topFunction(); return false;">Back to top</a></i></small></p>
     <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
@@ -109,22 +136,6 @@
         feather.replace()
 
         $(document).ready(function() {
-            $("#inputEventName").val("#WITGlobalForum21");
-            $("#inputOrg").val("Women in Tech®");
-            $("#inputDate").val("2021-05-01");
-            $("#inputStartTime").val("10:00");
-            $("#inputEndTime").val("22:00");
-            $("#inputVenue").val("Youtube Live");
-
-            var desc = "JOIN THE DECADE’S FIRST AND LARGEST HYBRID WOMEN IN TECHNOLOGY CONFERENCE IN THE WORLD!\n\n" +
-            "Fret not women outside UAE, now you too can enjoy the sessions via online for an augmented human experience, a full global reach and a more engaged community. " +
-            "This new decade will be that of Impact and Action. It is vital to achieve gender equality in STEM after an unprecedented health, social and economic crisis.\n\n" +
-            "The Forum will bring together global leaders, government and private sector representatives, experts, entrepreneurs, investors, academics, " +
-            "and other relevant stakeholders for an immersive experience of knowledge sharing, debates, creating alliances and networking.\n\n" +
-            "More information: https://womenintech-forum.com"
-
-            $("#inputDesc").val(desc);
-            
             $("input").attr("disabled", true);
             $("textarea").attr("disabled", true);
             $("file").attr("disabled", true);
@@ -136,11 +147,6 @@
             $("file").attr("disabled", false);
         });
 
-        $("#btnUpdate").on("click", function () {
-            $("input").attr("disabled", true);
-            $("textarea").attr("disabled", true);
-            $("file").attr("disabled", true);
-        });
     </script>
 </body>
 </html>
