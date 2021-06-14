@@ -19,7 +19,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="index.html" class="btn btn-logout text-white">log out</a>
+        <a href="logout.php" class="btn btn-logout text-white">log out</a>
     </header>
 
     <div class="container-fluid">
@@ -28,7 +28,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link" href="AdminMembers.html">
+                            <a class="nav-link" href="AdminMembers.php">
                             <span data-feather="users"></span>
                             Manage Alumni
                             </a>

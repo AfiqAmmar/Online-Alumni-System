@@ -44,7 +44,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="index.html" class="btn btn-logout text-white">log out</a>
+        <a href="logout.php" class="btn btn-logout text-white">log out</a>
     </header>
 
     <div class="container-fluid">
@@ -53,7 +53,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link" href="AdminMembers.html">
+                            <a class="nav-link" href="AdminMembers.php">
                             <span data-feather="users"></span>
                             Manage Alumni
                             </a>
@@ -78,7 +78,7 @@
                                 <input type="hidden" name="event_id" value="<?php echo $id; ?>">
                                 <div class="picture-container d-flex justify-content-center">
                                     <div class="picture">
-                                        <img src="images/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
+                                        <img src="event-image/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
                                         <input type="file" id="Image" name="event_image" class="form-control h-100 position-absolute top-0" 
                                             onchange="document.getElementById('ImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                     </div>

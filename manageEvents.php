@@ -25,7 +25,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="index.html" class="btn btn-logout text-white">log out</a>
+        <a href="logout.php" class="btn btn-logout text-white">log out</a>
     </header>
 
     <div class="container-fluid">
@@ -63,7 +63,7 @@
                                     <div class="img-container">
                                         <a href="processEvent.php?del=<?php echo $row['event_id']; ?>" class="btn btn-delete" id="btnDelete" role="button">X</a>
                                         <?php 
-                                            echo '<img src="images/'.$row['event_image'].'" class="card-img-top cropped">';
+                                            echo '<img src="event-image/'.$row['event_image'].'" class="card-img-top cropped">';
                                         ?>
                                     </div>
                                     <div class="card-body my-4">
