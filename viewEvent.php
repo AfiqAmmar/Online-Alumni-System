@@ -78,7 +78,7 @@
                                 <input type="hidden" name="event_id" value="<?php echo $id; ?>">
                                 <div class="picture-container d-flex justify-content-center">
                                     <div class="picture">
-                                        <img src="images/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
+                                        <img src="event-image/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
                                         <input type="file" id="Image" name="event_image" class="form-control h-100 position-absolute top-0" 
                                             onchange="document.getElementById('ImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                     </div>

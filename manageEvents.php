@@ -63,7 +63,7 @@
                                     <div class="img-container">
                                         <a href="processEvent.php?del=<?php echo $row['event_id']; ?>" class="btn btn-delete" id="btnDelete" role="button">X</a>
                                         <?php 
-                                            echo '<img src="images/'.$row['event_image'].'" class="card-img-top cropped">';
+                                            echo '<img src="event-image/'.$row['event_image'].'" class="card-img-top cropped">';
                                         ?>
                                     </div>
                                     <div class="card-body my-4">
