@@ -81,7 +81,7 @@ $emails = $_SESSION['email'];
 
       <?php while ($row = mysqli_fetch_array($results)) { ?>
 
-<<<<<<< HEAD
+
         <?php if($emails!=$row["user_email"]) { ?>
         
         <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
@@ -107,18 +107,6 @@ $emails = $_SESSION['email'];
           <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
         </div><br>
         <?php } ?>
-
-=======
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
-        </div>
-      <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
-      <li>  <?php echo $row["company"]; ?>  <br>
-           <?php echo $row["company_Address"]; ?> </li>
-        <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
-      </div><br>
->>>>>>> b2a49e5d2ec60434a27f663771508dd35428453b
       
        <?php } ?>
 
