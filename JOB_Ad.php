@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link"  href="Homepage.html">Home</a>
+                  <a class="nav-link"  href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Event.html">Event</a>
+                  <a class="nav-link" href="Event.php">Event</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Alumni.html">Alumni</a>
+                  <a class="nav-link" href="Alumni.php">Alumni</a>
                 </li>
             </ul>
             <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
@@ -48,7 +48,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
             <a href="logout.php" class="btn btn-logout text-white">log out</a>
@@ -57,17 +57,6 @@
     </nav>
 
     <h1 class="my-3">Job Advertisement</h1>
-
-    <div class="card px-4" style="margin-bottom: 5%;" >
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <a href="image/c1.jpg"><img src="image/c1thumb.png" alt="dummycompany1" width="150" height="150" style="border-radius:50%;"></a>
-        </div>
-      <ul><strong>Internship for Computer/IT Students</strong>
-      <li>DKSH Corporate Shared Services Center Sdn Bhd <br>
-        Kuala Lumpur </li>
-        <a href="View JobAd.html"><button type="button" class="btn btn-v " style="width: fit-content;">View More</button></a></ul>
-      </div><br>
 
 
       <!-- send user message -->

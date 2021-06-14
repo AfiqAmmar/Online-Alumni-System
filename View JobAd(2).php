@@ -47,16 +47,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="Homepage.html">Home</a>
+                  <a class="nav-link" href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Event.html">Event</a>
+                  <a class="nav-link" href="Event.php">Event</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Alumni.html">Alumni</a>
+                  <a class="nav-link" href="Alumni.php">Alumni</a>
                 </li>
             </ul>
             <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
@@ -69,7 +69,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
             <a href="logout.php" class="btn btn-logout text-white">log out</a>
@@ -155,46 +155,6 @@
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
-    <!--
-    <script>
-        feather.replace()
-
-        $(document).ready(function() {
-            $("#inputTitle").val("Information Technology (I.T.)");
-            $("#inputcname").val("ExxonMobil Malaysia.");
-            $("#inputcaddress").val("Jalan Sungai Ramal Luar");
-            $("#inputcitystate").val("Selangor");
-            $("#inputcontact").val("03-80202051");
-            $("#inputemail").val("dknshSDNBHD@gmail.com");
-
-            var desc = "Job Available:\n" + 
-            "Software / Applications Development \n Automation\n Network Security\n I.T. Risk Management and Security\n Server, Storage & Backup\n\n " + 
-            "Job Specialized Skills:\n" +
-            "Network Engineer\n Server Engineer\n Plant Information (PI) Analyst\n Operations Centre (EOC) Major Incident Manager\n\n" 
-
-            $("#inputDesc").val(desc);
-            
-            $("input").attr("enable", true);
-            $("textarea").attr("enable", true);
-            $("file").attr("enable", true);
-        });
-
-        $("#btnDelete").on("click", function () {
-            $("input").attr("disabled", false);
-            $("textarea").attr("disabled", false);
-            $("file").attr("disabled", false);
-        });
-
-        $("#btnUpdate").on("click", function () {
-            $("input").attr("disabled", true);
-            $("textarea").attr("disabled", true);
-            $("file").attr("disabled", true);
-        });   
-
-      var myModal = document.getElementById('deleteModal') 
-      myModal.show()
-
-    </script>    --> 
-
+    
 </body>
 </html>
