@@ -2,9 +2,19 @@
 
 include_once("config\config.php");
 
+if (isset($_GET['page'])){
+  $page = $_GET['page'];
+} else {
+  $page = 1;
+}
+
+$numpp = 9;
+$startf = ($page-1)*9;
+
+
           
 $sql = "SELECT * FROM `user` ORDER BY `user_id`ASC ,`user_name`,`user_year`,
-`user_bio`,`user_image` ";
+`user_bio`,`user_image` LIMIT $startf, $numpp";
   $result = mysqli_query($mysqli, $sql);
 
 if(mysqli_num_rows($result) > 0){
@@ -20,8 +30,8 @@ if(mysqli_num_rows($result) > 0){
  else {
  echo "failed";
 }
-          
-          
+
+       
 
 ?>
 
@@ -99,7 +109,7 @@ if(mysqli_num_rows($result) > 0){
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
 
                 <div class="col" >
-                  <div class="card shadow ">    
+                  <div class="card shadow h-100">    
                       <img src=<?php echo "\"image/".$image[0]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -109,14 +119,14 @@ if(mysqli_num_rows($result) > 0){
                         <h5 class="card-title"><strong><?php echo $name[0]?></strong></h5>
                         <p class="card-text">Class of <?php echo $year[0] ?>. <?php echo $bio[0] ?></p>
                         <!--<a href="ProfileView.php" class="btn-view btn">View</a>-->
-                        <?php echo "<br/><a href=\"ProfileView.php?id=".$id[0]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                        <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[0]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                       </div>
                   </div>
                 </div>
 
 
                 <div class="col">
-                  <div class="card shadow ">            
+                  <div class="card shadow h-100" <?php if(count($id)<2) echo "hidden"; ?>>            
                   <img src=<?php echo "\"image/".$image[1]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -126,7 +136,7 @@ if(mysqli_num_rows($result) > 0){
                         <h5 class="card-title"><strong><?php echo $name[1]?></strong></h5>
                         <p class="card-text">Class of <?php echo $year[1] ?>. <?php echo $bio[1] ?></p>                        
                         
-                       <?php echo "<br/><a href=\"ProfileView.php?id=".$id[1]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                       <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[1]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
 
                       </div>
                   </div>
@@ -134,7 +144,7 @@ if(mysqli_num_rows($result) > 0){
           
 
                 <div class="col">
-                  <div class="card shadow h-100">
+                  <div class="card shadow h-100" <?php if(count($id)<3) echo "hidden"; ?>>
                   <img src=<?php echo "\"image/".$image[2]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -143,14 +153,14 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[2]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[2] ?>. <?php echo $bio[2] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[2]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[2]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                         
                       </div>
                   </div>
                 </div>
 
                 <div class="col">
-                  <div class="card shadow h-100">            
+                  <div class="card shadow h-100" <?php if(count($id)<4) echo "hidden"; ?>>            
                   <img src=<?php echo "\"image/".$image[3]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -159,7 +169,7 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[3]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[3] ?>. <?php echo $bio[3] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[3]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[3]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                           
                       </div>
                   </div>
@@ -167,7 +177,7 @@ if(mysqli_num_rows($result) > 0){
 
 
                 <div class="col">
-                  <div class="card shadow h-100">            
+                  <div class="card shadow h-100" <?php if(count($id)<5) echo "hidden"; ?>>            
                   <img src=<?php echo "\"image/".$image[4]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -176,14 +186,14 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[4]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[4] ?>. <?php echo $bio[4] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[4]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[4]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                           
                       </div>
                   </div>
                 </div>
 
                 <div class="col">
-                  <div class="card shadow h-100">            
+                  <div class="card shadow h-100" <?php if(count($id)<6) echo "hidden"; ?>>            
                   <img src=<?php echo "\"image/".$image[5]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -192,14 +202,14 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[5]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[5] ?>. <?php echo $bio[5] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[5]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[5]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                           
                       </div>
                   </div>
                 </div>
 
                 <div class="col">
-                  <div class="card shadow h-100">            
+                  <div class="card shadow h-100" <?php if(count($id)<7) echo "hidden"; ?>>            
                   <img src=<?php echo "\"image/".$image[6]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -208,14 +218,14 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[6]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[6] ?>. <?php echo $bio[6] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[6]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[6]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                           
                       </div>
                   </div>
                 </div>
 
                 <div class="col">
-                  <div class="card shadow h-100">            
+                  <div class="card shadow h-100" <?php if(count($id)<8) echo "hidden"; ?> >            
                   <img src=<?php echo "\"image/".$image[7]."\"" ?> class="card-img-top cropped">
                          
                     
@@ -224,15 +234,15 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[7]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[7] ?>. <?php echo $bio[7] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[7]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[7]."\" class=\"btn-view btn position-absolute bottom-0 start-1\">View</a><br/>"; ?>
                           
                       </div>
                   </div>
                 </div>
 
                 <div class="col">
-                  <div class="card shadow h-100">            
-                  <img src=<?php echo "\"image/".$image[8]."\"" ?> class="card-img-top cropped">
+                  <div class="card shadow h-100" <?php if(count($id)<9) echo "hidden"; ?> >            
+                  <img src=<?php echo "\"image/".$image[8]."\"" ?> class="card-img-top cropped" >
                          
                     
                          <div class="card-body text-dark">
@@ -240,7 +250,7 @@ if(mysqli_num_rows($result) > 0){
                            <!--Make a javascript-->
                            <h5 class="card-title"><strong><?php echo $name[8]?></strong></h5>
                            <p class="card-text">Class of <?php echo $year[8] ?>. <?php echo $bio[8] ?></p>
-                           <?php echo "<br/><a href=\"ProfileView.php?id=".$id[8]."\" class=\"btn-view btn\">View</a><br/>"; ?>
+                           <?php echo "<br/><a href=\"ProfileView.php?page=".$page."&id=".$id[8]."\" class=\"btn-view btn position-absolute bottom-0 start-1 \" >View</a><br/>"; ?>
                           
                       </div>
                   </div>
@@ -250,25 +260,41 @@ if(mysqli_num_rows($result) > 0){
             </div>
           </div>
 
-          <div class=" pb-5">
+          <div class=" pb-5" >
             <nav aria-label="...">
                <ul class="pagination justify-content-end">
+               <?php 
+                
+                $sql_ = "SELECT * FROM user";
+                $result_ =mysqli_query($mysqli, $sql_);
+                $record_ = mysqli_num_rows($result_);
 
-                <li class="page-item disabled">
-                  <span class="page-link ">Previous</span>
-                </li>
-                    
-               <li class="page-item active" aria-current="page">
-                  <a class="page-link ">1</a>
-                </li>
+                $totalPage = ceil($record_/$numpp);
 
-                <li class="page-item">
-                  <a class="page-link" href="AdminMembers2.html">2</a>
-                </li>
+                if ($page>1){
+                  echo "<br><li class=\"page-item\"><br>
+                          <a class=\"page-link\"  href=\"AdminMembers.php?page=".($page-1)."\">Previous</a><br>
+                        </li><br>";
+                }
+                
 
-                <li class="page-item">
-                  <a class="page-link"  href="AdminMembers2.html">Next</a>
-                </li>
+                for ($i=1; $i<=$totalPage; $i++){
+                  echo "<br><li class=\"page-item\"><br>
+                          <a class=\"page-link\" href=\"AdminMembers.php?page=".$i."\">".$i."</a><br>
+                        </li><br>";
+                  
+                }
+                
+
+                if ($i-1>$page){
+                  
+                  echo "<br><li class=\"page-item\"><br>
+                          <a class=\"page-link\"  href=\"AdminMembers.php?page=".($page+1)."\">Next</a><br>
+                        </li><br>";
+                       
+                }
+              
+              ?>
 
               </ul>
             </nav>
@@ -278,6 +304,7 @@ if(mysqli_num_rows($result) > 0){
 
       </div>
     </div>
+    
     
 
     <footer class="footer mt-auto py-0 text-white">

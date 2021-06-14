@@ -3,6 +3,7 @@
 include_once("config\config.php");
 
     $id=$_GET['id'];
+    $page=$_GET['page'];
 
     $sql3 = "SELECT * FROM user WHERE user_id=$id";
     $result3 = mysqli_query($mysqli, $sql3);
@@ -99,7 +100,7 @@ include_once("config\config.php");
         </nav>
           
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <form name="editProfile" method="post" action=<?php echo "\"processProfileEdit.php?id=$id\""?> enctype="multiple/form-data">
+        <form name="editProfile" method="post" action=<?php echo "\"processProfileEdit.php?page=$page&id=$id\""?> enctype="multiple/form-data">
           <div class="border-bottom text-center pt-3 pb-3">
             <h2><strong>Alumni Profile</strong></h2>
           </div>
@@ -206,7 +207,7 @@ include_once("config\config.php");
                 <div class="container">
                   <div class="row mt-5 pt-5">
                     <div class=" col d-grid gap-2 d-md-block">
-                      <a class="btn-view btn" href=<?php  echo "\"ProfileView.php?id=$id\"" ?> role="button">Back</a>     
+                      <a class="btn-view btn" href=<?php  echo "\"ProfileView.php?page=$page&id=$id\"" ?> role="button">Back</a>     
                     </div>       
                     <input type="submit" name="save" value="Save" class="btn btn-view" role="button">                  
                   </div>
