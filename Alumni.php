@@ -1,5 +1,5 @@
 <?php 
-include('config.php'); 
+include('config\config.php'); 
 ?>
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@ include('config.php');
 <body>  
   <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="image/asset/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/asset/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,7 +49,7 @@ include('config.php');
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
             <a href="logout.php" class="btn btn-logout text-white">log out</a>
@@ -86,7 +86,7 @@ include('config.php');
                                   </ul>
                               </div>
                               <div class="col-5 text-center">
-                                  <img src=<?php echo $row["user_image"]; ?> alt="Boy"  class="rounded-circle img-fluid" height="100" width="100" >
+                                  <img src="user-image/<?php echo $row["user_image"]; ?> " alt="Boy"  class="rounded-circle img-fluid" height="100" width="100" >
                               </div>  
                           </div>
                       </div>
@@ -101,7 +101,7 @@ include('config.php');
                $records = $common->getAllRecords($mysqli);
                if ($records->num_rows>0){
                 $sr = 1;
-                 while ($record = $records->fetch_object()) {
+                while ($record = $records->fetch_object()) {
                 $email = $record->user_email;
                 $name = $record->user_name;
                 $course = $record->user_course;

@@ -1,4 +1,4 @@
-<?php include("config.php")?>
+<?php include("config\config.php")?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
 <body>  
   <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="image/asset/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/asset/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,7 +58,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
             <a href="logout.php" class="btn btn-logout text-white">log out</a>
@@ -86,13 +86,13 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="image/event/1.png" alt="EventPage1" width=100%; height= 100%;>
+        <img src="image/1.png" alt="EventPage1" width=100%; height= 100%;>
       </div>
       <div class="carousel-item">
-        <img src="image/event/2.png" alt="EventPage2" width=100%; height= 100%;>
+        <img src="image/2.png" alt="EventPage2" width=100%; height= 100%;>
       </div>
       <div class="carousel-item">
-        <img src="image/event/3.png" alt="EventPage3" width=100%; height= 100%;>
+        <img src="image/3.png" alt="EventPage3" width=100%; height= 100%;>
       </div>
     </div>
     

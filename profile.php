@@ -82,7 +82,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link" href="Homepage.html">Home</a>
+                <a class="nav-link" href="Homepage.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="JOB_Ad.html">Careers</a>
@@ -91,7 +91,7 @@
                 <a class="nav-link" href="Event.html">Event</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Alumni.html">Alumni</a>
+                <a class="nav-link" href="Alumni.php">Alumni</a>
               </li>
           </ul>
           <form class="navbar-form" role="search">
@@ -107,7 +107,7 @@
                 <a class="nav-link active" aria-current="page" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
           </ul>
-          <a href="index.html" class="btn btn-logout text-white">log out</a>
+          <a href="logout.php" class="btn btn-logout text-white">log out</a>
       </div>
     </div>      
   </nav>
