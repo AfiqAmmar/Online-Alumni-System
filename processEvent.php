@@ -13,7 +13,7 @@
         $desc = mysqli_real_escape_string($mysqli, $_POST['event_description']);
 
         $image = $_FILES['event_image']['name'];
-        $target = "images/".basename($image);
+        $target = "event-image/".basename($image);
 
         $sql = "INSERT INTO event (event_name, event_organiser, event_date, event_start, event_end, event_venue, event_image, event_description)
         VALUES ('$name', '$organiser', '$date', '$start', '$end', '$venue', '$image', '$desc')"; 
@@ -52,7 +52,7 @@
         $desc = mysqli_real_escape_string($mysqli, $_POST['event_description']);
 
         $image = $_FILES['event_image']['name'];
-        $target = "images/".basename($image);
+        $target = "event-image/".basename($image);
 
         $sql = "UPDATE event SET event_name='$name', event_organiser='$organiser', event_date='$date', 
         event_start='$start', event_end='$end', event_venue='$venue', event_description='$desc' WHERE event_id=$id";
