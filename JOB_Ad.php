@@ -78,7 +78,7 @@
 
       <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
         <div class="pictureco">
-          <?php echo '<img src="images/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
+          <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
         </div>
       <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
       <li>  <?php echo $row["company"]; ?>  <br>
@@ -97,7 +97,7 @@
     </div>
 
 
-    <footer class="footer mt-auto py-0- text-white">
+    <footer class="footer fixed-bottom mt-auto py-0- text-white">
         <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
         <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
