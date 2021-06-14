@@ -1,4 +1,4 @@
-<?php include("config\config.php")?>
+<?php  include("config\config.php"); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
