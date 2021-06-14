@@ -71,6 +71,7 @@ include('config\config.php');
               <!-- profile 1 -->
               <?php $results = mysqli_query($mysqli, " SELECT * FROM user");?>
               <?php while ($row = mysqli_fetch_array($results)):?>
+              <?php if ($row ["user_status"]== "approved"){?>
               <div class="col-12 align-items-stretch col-sm-6 col-md-4" style="width: 26rem; ">
                   <div class="card">
                       <div class="card-header" style="background-color: rgb(179, 122, 233);">
@@ -92,7 +93,7 @@ include('config\config.php');
                       </div>
                     </div>
                </div>
-               <?php endwhile; ?>
+               <?php } endwhile; ?>
 
                <?php
                include_once "Common.php";
