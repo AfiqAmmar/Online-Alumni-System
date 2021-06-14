@@ -82,8 +82,8 @@ include("config.php");
               echo "Search result for \"<b>$keyword</b>\"";?>
               <hr class="my-4">
             <?php  while($row = mysqli_fetch_assoc($result)):
-              
-          ?> 
+                  if ($row ["user_status"]== "approved") {
+                      ?> 
           <p class="lead"></p>
           <!--Profile List-->
           <div>
@@ -93,12 +93,12 @@ include("config.php");
               <div class="col-12 align-items-stretch col-sm-6 col-md-4" style="width: 26rem; ">
                   <div class="card">
                       <div class="card-header" style="background-color: rgb(179, 122, 233);">
-                        <h5 class="card-title"><a href="ProfilePage.php<?php echo "?email=".$row ["user_email"]; ?>" class="text-dark" ><?php echo $row ["user_name"];?></a></h5>
+                        <h5 class="card-title"><a href="ProfilePage.php<?php echo "?email=".$row ["user_email"]; ?>" class="text-dark" ><?php echo $row ["user_name"]; ?></a></h5>
                       </div>
                       <div class="card-body">
                           <div class="row">
                               <div class="col-7">
-                                  <i> <?php echo $row["user_bio"];?> </i> <br>
+                                  <i> <?php echo $row["user_bio"]; ?> </i> <br>
                                   <p>Graduated on <?php echo $row ["user_year"]; ?></p>
                                   <ul>
                                       <li><b>Email:</b> <?php echo $row ["user_email"]; ?> </li>
@@ -111,7 +111,8 @@ include("config.php");
                       </div>
                     </div>
                </div>
-          <?php endwhile; 
+          <?php
+                  }endwhile;  
            }else{
             echo "No results found for \"<b>$keyword</b>\"";
           }?>
