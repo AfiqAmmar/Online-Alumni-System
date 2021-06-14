@@ -34,7 +34,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item px-2 py-1">
-                            <a class="nav-link" href="AdminMembers.html">
+                            <a class="nav-link" href="AdminMembers.php">
                             <span data-feather="users"></span>
                             Manage Alumni
                             </a>
