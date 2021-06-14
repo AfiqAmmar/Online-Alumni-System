@@ -1,8 +1,8 @@
 <?php
 
+    include_once("config\config.php");
     session_start();
     $emails = $_SESSION['email'];
-    include_once("config\config.php");
     $sql = "SELECT * FROM user WHERE user_email='$emails'";
     $result = mysqli_query($mysqli, $sql);
     while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)){

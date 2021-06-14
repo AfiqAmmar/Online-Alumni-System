@@ -88,8 +88,9 @@
 
     $messageErrDel = "";
     if(isset($_POST['submitDelete'])){
-        $passwordDel = $_POST['deletePassword']; 
-        if($passwordDel == $password){
+        $passwordDel = $_POST['deletePassword'];
+        $hashedpassword = sha1($passwordDel); 
+        if($hashedpassword == $password){
             $sqlP = "DELETE FROM user WHERE user_email='$emails'";
             $resultP = mysqli_query($mysqli, $sqlP);
             echo "<script>alert('Account has been deleted')</script>";
@@ -170,12 +171,12 @@
                             <!-- <input type="text" class="form-control" id="inputCourse" value="Bachelor of Computer Science(Software Engineering)"> -->
                             <select class="form-select" name="inputCourse" required aria-label="Default select example">
                                 <option selected><?php echo $course ?></option>
-                                <option value="1">Bachelor of Computer Science (Artificial Intelligence)</option>
-                                <option value="1">Bachelor of Computer Science (Software Engineering)</option>
-                                <option value="2">Bachelor of Computer Science (Computer System and Network)</option>
-                                <option value="3">Bachelor of Computer Science (Information Systems)</option>
-                                <option value="4">Bachelor of Information Technology (Multimedia)</option>
-                                <option value="5">Bachelor of Computer Science (Data Science)</option>
+                                <option value="Bachelor of Computer Science (Artificial Intelligence)">Bachelor of Computer Science (Artificial Intelligence)</option>
+                                <option value="Bachelor of Computer Science (Software Engineering)">Bachelor of Computer Science (Software Engineering)</option>
+                                <option value="Bachelor of Computer Science (Computer System and Network)">Bachelor of Computer Science (Computer System and Network)</option>
+                                <option value="Bachelor of Computer Science (Information Systems)">Bachelor of Computer Science (Information Systems)</option>
+                                <option value="Bachelor of Information Technology (Multimedia)">Bachelor of Information Technology (Multimedia)</option>
+                                <option value="Bachelor of Computer Science (Data Science)">Bachelor of Computer Science (Data Science)</option>
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
