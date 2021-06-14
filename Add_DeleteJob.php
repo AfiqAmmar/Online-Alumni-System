@@ -1,3 +1,5 @@
+<?php  include('processJob.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,17 +32,17 @@
                   <a class="nav-link" href="Event.html">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Alumni.html">Alumni</a>
                 </li>
             </ul>
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
@@ -49,75 +51,74 @@
                 <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
 
     <h1 class="my-3">Job Registration</h1>
         
-    <form action="#" method="post">
+    <form action="processJob.php" method="post" enctype="multipart/form-data">
       
         <div class="card px-4" style="margin-bottom: 5%;">
             <div class="card-body shadow">
                 <h2 class="card-event-title">New Job details</h2>
-                <form class="row g-3 text-center">
                         <div class="picture">              
-                            <input type="file" id="addImage" class="form-control" 
+                            <input type="file" id="addImage" name="photo"  class="form-control" 
                                 onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
                             <img src="image/office-building.png" class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">
                         </div>
                   <div class="row">
                     <div class="col-md-6">
                       <label for="inputTitle" class="form-label"></label>
-                      <input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
+                      <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Title" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputcname" class="form-label"></label>
-                        <input type="text" class="form-control" id="inputcname" placeholder="Company Name" required>
+                        <input type="text" class="form-control" id="inputcname" name="cname" placeholder="Company Name" required>
                     </div> 
                   </div>  
                     
                   <div class="row">
                     <div class="col-md-6">
                       <label for="inputcaddress" class="form-label"></label>
-                      <input type="text" class="form-control" id="inputcaddress" placeholder="Company Address" required>
+                      <input type="text" class="form-control" id="inputcaddress" name="caddress" placeholder="Company Address" required>
                     </div>
                     <div class="col-md-6">
                       <label for="inputcitystate" class="form-label"></label>
-                      <input type="text" class="form-control" id="inputcitystate" placeholder="City, State" required>
+                      <input type="text" class="form-control" id="inputcitystate"  name="citystate" placeholder="City, State" required>
                     </div>
                   </div>
 
                     <div class="col-12">
                         <label for="inputDesc" class="form-label"></label>
-                        <textarea class="form-control" id="inputDesc" rows="3" placeholder="Write the job description here..."></textarea>
+                        <textarea class="form-control" id="inputDesc"  name="desc" rows="3" placeholder="Write the job description here..."></textarea>
                     </div>
 
                     <div class="row">
                       <div class="col-md-6">
                         <label for="inputcontact" class="form-label"></label>
-                        <input type="tel" class="form-control" id="inputcontact" placeholder="Contact" required>
+                        <input type="tel" class="form-control" id="inputcontact" name="contact" placeholder="Contact" required>
                       </div>
                       <div class="col-md-6">
                         <label for="inputemail" class="form-label"></label>
-                        <input type="text" class="form-control" id="inputemail" placeholder="Email" required>
+                        <input type="text" class="form-control" id="inputemail" name="email" placeholder="Email" required>
                       </div>
                     </div>
 
-                  </form>
+               
             </div>
             
                     <div class="col text-center">
-                        <button type="submit" class="btn btn-add-submit text-white">Submit</button>
+                        <a href ="JOB_Ad.php"><button type="submit" class="btn btn-add-submit text-white"name = "submit" >Submit</button></a>
                     </div></div>
-
+    </form>
         <footer class="footer mt-auto py-0 text-white">
             <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
             <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
         </footer>      
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    </form>
+    
 
 </body>
 </html>

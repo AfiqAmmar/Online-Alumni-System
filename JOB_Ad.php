@@ -1,3 +1,5 @@
+<?php  include('processJob.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,17 +32,17 @@
                   <a class="nav-link" href="Event.html">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Alumni.html">Alumni</a>
                 </li>
             </ul>
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
@@ -49,7 +51,7 @@
                 <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
@@ -68,52 +70,40 @@
       </div><br>
 
 
+      <!-- send user message -->
+      <?php if (isset($_SESSION['message'])): ?>
+	    <div class="msg">
+		  <?php 
+        echo $_SESSION['message']; 
+			  unset($_SESSION['message']);
+		  ?>
+	    </div>
+      <?php endif ?>  
+            
+
+
+      <!-- display the info from database -->
+      <?php $results = mysqli_query($mysqli, "SELECT * FROM job"); ?>
+
+      <?php while ($row = mysqli_fetch_array($results)) { ?>
+
       <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
         <div class="pictureco">
-          <a href="image/c2.jpg"><img src="image/c2thumb.png" alt="dummycompany2" width="150" height="150" style="border-radius:50%;"></a>
+          <?php echo '<img src="images/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
         </div>
-      <ul><strong>Information Technology (I.T.)</strong>
-      <li>ExxonMobil Malaysia <br>
-        Selangor</li>
-        <a href="View JobAd(2).html"><button type="button" class="btn btn-v ">Edit</button></a></ul>
+      <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
+      <li>  <?php echo $row["company"]; ?>  <br>
+           <?php echo $row["company_Address"]; ?> </li>
+        <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
       </div><br>
-
-
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <a href="image/c3.jpg"><img src="image/c3thumb.jpeg" alt="dummycompany3" width="150" height="150" style="border-radius:50%;"></a>
-        </div>
-      <ul><strong>IT Support Executive</strong>
-      <li>Nippon Express (M) Sdn Bhd <br>
-        Shah Alam & Subang, Selangor</li>
-        <a href="View JobAd(3).html"><button type="button" class="btn btn-v">Edit</button></a></ul>
-      </div><br>
-
-
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <a href="image/c3.jpg"><img src="image/c3thumb.jpeg" alt="dummycompany4" width="150" height="150" style="border-radius:50%;"></a>
-        </div>
-      <ul><strong>IT Support Executive</strong>
-      <li>Nippon Express (M) Sdn Bhd <br>
-        Shah Alam & Subang, Selangor</li>
-        <a href="View JobAd(3).html"><button type="button" class="btn btn-v">Edit</button></a></ul>
-      </div><br>
-
-
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <a href="image/c3.jpg"><img src="image/c3thumb.jpeg" alt="dummycompany5" width="150" height="150" style="border-radius:50%;"></a>
-        </div>
-      <ul><strong>IT Support Executive</strong>
-      <li>Nippon Express (M) Sdn Bhd <br>
-        Shah Alam & Subang, Selangor</li>
-        <a href="View JobAd(3).html"><button type="button" class="btn btn-v">Edit</button></a></ul>
-      </div>
+      
+       <?php } ?>
 
       <div class="card-body" align="Center">
-        <a href="Add_DeleteJob.html"><button type="button" class="btn btn-add text-white">Add</button></a>
+        <a href="Add_DeleteJob.php" type="button" class="btn btn-add text-white" name="add">Add</a>
       </div>
+
+
 
     </div>
 

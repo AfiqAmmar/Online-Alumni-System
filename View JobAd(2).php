@@ -1,8 +1,31 @@
+<?php  include('processJob.php'); 
+    
+    //edit the form
+    //parameter=?edit=...
+    if (isset($_GET['edit'])) {
+        $id = $_GET['edit'];
+        $update = true;
+        $record = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id=$id");
+        $n = mysqli_fetch_array($record, MYSQLI_ASSOC);
+
+            $photo = $n["job_image"];
+            $title = $n["job_position"];
+            $cname = $n["company"];
+            $caddress = $n["company_Address"];
+            $citystate = $n["job_city_state"];
+            $desc = $n["job_description"];
+            $contact = $n["job_contact"];
+            $email = $n["job_email"];
+      } 
+
+
+     ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>FCSIT UM Alumni</title>
+    <title>FCSIT UM Alumni </title>
     <meta charset="utf-8">
     <link rel ="stylesheet" type="text/css" href ="job.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,17 +53,17 @@
                   <a class="nav-link" href="Event.html">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Alumni.html">Alumni</a>
                 </li>
             </ul>
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
@@ -49,85 +72,79 @@
                 <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
 
     
-    <h1 class="my-3">Job Advertisement</h1>
-    
+    <h1 class="my-3">Job Advertisement </h1>
+
     <div class="card px-4" style="margin-bottom: 5%;">
       <div class="card-body shadow">
           <h2 class="card-event-title">New Job details</h2>
-          <form class="row g-3 text-center">
-                  <div class="picture">              
-                      <input type="file" id="c2Image" class="form-control" 
+          <form class="row g-3 text-center"  action="processJob.php" method="POST" enctype="multipart/form-data">
+                  <div class="picture">      
+                      <input type="file" id="addImage" name="photo" class="form-control" 
                           onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
-                      <img src="image/c2.jpg" class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">
+                      <?php  echo'<img src="images/'.$photo.' " class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">' ;?>
                     </div>
             <div class="row">
               <div class="col-md-6">
                 <label for="inputTitle" class="form-label"></label>
-                <input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
+                <input type="text" class="form-control" id="inputTitle" name="title" value="<?php echo $title; ?>" placeholder="Title" required>
               </div>
               <div class="col-md-6">
                   <label for="inputcname" class="form-label"></label>
-                  <input type="text" class="form-control" id="inputcname" placeholder="Company Name" required>
+                  <input type="text" class="form-control" id="inputcname" name="cname" value="<?php echo $cname; ?>" placeholder="Company Name" required>
               </div> 
             </div>  
               
             <div class="row">
               <div class="col-md-6">
                 <label for="inputcaddress" class="form-label"></label>
-                <input type="text" class="form-control" id="inputcaddress" placeholder="Company Address" required>
+                <input type="text" class="form-control" id="inputcaddress" name="caddress" value="<?php echo $caddress; ?>" placeholder="Company Address" required>
               </div>
               <div class="col-md-6">
                 <label for="inputcitystate" class="form-label"></label>
-                <input type="text" class="form-control" id="inputcitystate" placeholder="City, State" required>
+                <input type="text" class="form-control" id="inputcitystate" name="citystate" value="<?php echo $citystate; ?>" placeholder="City, State" required>
               </div>
             </div>
 
               <div class="col-12">
                   <label for="inputDesc" class="form-label"></label>
-                  <textarea class="form-control" id="inputDesc" rows="3" placeholder="Write the job description here..."></textarea>
+                  <textarea class="form-control" id="inputDesc" rows="3" name="desc" placeholder="Write the job description here..."><?php echo $desc; ?></textarea>
               </div>
 
               <div class="row">
                 <div class="col-md-6">
                   <label for="inputcontact" class="form-label"></label>
-                  <input type="tel" class="form-control" id="inputcontact" placeholder="Contact" required>
+                  <input type="tel" class="form-control" id="inputcontact" name="contact" value="<?php echo $contact; ?>" placeholder="Contact" required>
                 </div>
                 <div class="col-md-6">
                   <label for="inputemail" class="form-label"></label>
-                  <input type="text" class="form-control" id="inputemail" placeholder="Email" required>
+                  <input type="text" class="form-control" id="inputemail" name="email" value="<?php echo $email; ?>" placeholder="Email" required>
                 </div>
               </div>
 
-            </form>
+              <input type="hidden" name="id" value="<?php echo $id; ?>">
        </div>
-    
+          
+
                     <div class="col text-center">
-                      <button role="button" class="btn btn-delete text-white" id="btnDelete" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                      <button role="button" class="btn btn-update text-white" id="btnUpdate" href="#" >Update</button>
-                      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title" id="deleteModalLabel"></h6>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-editForm btn-closed text-white" data-bs-dismiss="modal" style="height: 40px; background-color: gray;">Cancel</button>
-                                    <a href="JOB_Ad.html" class="btn btn-editForm btn-confirm text-white" style="height: 40px; background-color: #a30fb0;">Confirm</a>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div> 
+                    <?php $results = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id='$id'" ); ?>
+                    <?php $row = mysqli_fetch_array($results);?>
+                    <a href="processJob.php?del=<?php echo $row['job_id']; ?>" type="button" class="btn btn-delete text-white" id="btnDelete" name="del" >Delete</a>
+                    
+
+                      <?php if ($update == true): ?>
+                        <button role="button" class="btn btn-update text-white" id="btnUpdate" name="update" href="JOB_Ad.php" >Update</button>
+                      <?php endif ?>
+       
+  
+
+                   </div> 
+        </form>       
      </div> 
 
     <footer class="footer mt-auto py-0 text-white">
@@ -137,6 +154,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <!--
     <script>
         feather.replace()
 
@@ -175,7 +194,7 @@
       var myModal = document.getElementById('deleteModal') 
       myModal.show()
 
-    </script> 
+    </script>    --> 
 
 </body>
 </html>
