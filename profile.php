@@ -88,18 +88,18 @@
                 <a class="nav-link" href="Homepage.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="JOB_Ad.html">Careers</a>
+                <a class="nav-link" href="JOB_Ad.php">Careers</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Event.html">Event</a>
+                <a class="nav-link" href="Event.php">Event</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Alumni.php">Alumni</a>
               </li>
           </ul>
-          <form class="navbar-form" role="search">
+          <form class="navbar-form" role="search" action="SearchPage.php" method="get">
             <div class="input-group add-on">
-              <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+              <input class="form-control" placeholder="Search for Alumni" name="search" id="search" type="text">
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
               </div>
