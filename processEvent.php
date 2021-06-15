@@ -29,9 +29,9 @@
 	    mysqli_close($mysqli);
     }
 
-    if (isset($_GET['del'])) {
-        $id = $_GET['del'];
-        $sql = "DELETE FROM event where event_id=$id";
+    if (isset($_POST['delete'])) {
+        $name = $_POST['event_name'];
+        $sql = "DELETE FROM event WHERE event_name='$name'";
 
         if (mysqli_query($mysqli, $sql)) {
 		    header("Location: manageEvents.php");  

@@ -196,6 +196,21 @@ footer{
     margin: 20px 10px 20px 10px;
 }
 
+.btn-deletebetul {
+    background-color: red;
+    color: white !important;
+    width: 100px;
+    height: 35px;
+    margin: 20px 10px 10px 10px;
+}
+
+.btn-cancel {
+    border-color: gray;
+    width: 100px;
+    height: 35px;
+    margin: 20px 10px 10px 10px;
+}
+
 .card-img-left {
     height: 200px;
 }
