@@ -39,7 +39,7 @@ if (isset($_POST['approve'])){
 
     try{
 
-        $sql = "UPDATE user SET user_status='Approved' WHERE user_email='$email'  ";
+        $sql = "UPDATE user SET user_status='approved' WHERE user_email='$email'  ";
         
         if (mysqli_query($mysqli, $sql)) {
 

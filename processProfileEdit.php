@@ -27,7 +27,7 @@ if (isset($_POST['save'])){
          echo "okay";
 
         if ($image) {
-         $sql2 = "UPDATE user SET user_image='$image' WHERE user_email=$email";
+         $sql2 = "UPDATE user SET user_image='$image' WHERE user_email='$email'";
          
          move_uploaded_file($_FILES['image']['tmp_name'], $target);
          mysqli_query($mysqli, $sql2);
