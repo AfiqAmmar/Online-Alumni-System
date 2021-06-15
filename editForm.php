@@ -65,8 +65,9 @@
                                 $sqlUpLink = "UPDATE user SET user_linkedin = '$linkedinUp' WHERE user_email='$emailUp'";
                                 $resultUpLink = mysqli_query($mysqli, $sqlUpLink);
                                 $_SESSION['email'] = $_POST['inputEmail'];
-                                echo "<script>alert('Changes made have been saved')</script>";
-                                echo "<script>window.location = 'profile.php'</script>";;
+                                // echo "<script>alert('Changes made have been saved')</script>";
+                                // echo "<script>window.location = 'profile.php'</script>";;
+                                header("Location: profile.php? action=success");
                             }
                         }
                         else{
@@ -76,8 +77,9 @@
                                 $sqlUpLink = "UPDATE user SET user_linkedin = '$linkedinUp' WHERE user_email='$emailUp'";
                                 $resultUpLink = mysqli_query($mysqli, $sqlUpLink);
                                 $_SESSION['email'] = $_POST['inputEmail'];
-                                echo "<script>alert('Changes made have been saved')</script>";
-                                echo "<script>window.location = 'profile.php'</script>";
+                                // echo "<script>alert('Changes made have been saved')</script>";
+                                // echo "<script>window.location = 'profile.php'</script>";
+                                header("Location: profile.php? action=success");
                         }
                     }
                 
@@ -85,7 +87,7 @@
             }
         }
     }
-
+    $errDel = False;
     $messageErrDel = "";
     if(isset($_POST['submitDelete'])){
         $passwordDel = $_POST['deletePassword'];
@@ -98,7 +100,7 @@
             session_destroy();
         }
         else{
-            $messageErrDel = "Your password did not match, try again";
+            $errDel = True;
         }
     }
     mysqli_close($mysqli);
@@ -125,6 +127,17 @@
         </div>      
     </nav>
     
+    <?php
+        if($errDel){?>
+            <html>
+                <div class="alert alert-danger mb-2 pt-2 d-flex justify-content-center">
+                    <p>Your password does not match, please try again.</p>
+                </div>
+            </html>
+        <?php
+        } ?>
+    
+
     <div class="container-fluid mt-3 d-flex justify-content-center">
         <div class="card manage-profile shadow" style="width: 45rem;">
             <div class="card-header card-header-editForm text-center text-white">
@@ -233,10 +246,6 @@
                                             <div class="form-group">
                                                 <label for="inputDeletePassoword" class="col-form-label">Please enter your password to proceed</label>
                                                 <input type="password" class="form-control" name="deletePassword" id="inputDeletePassoword">
-                                                <p class="my-2"><i><?php 
-                                                echo $messageErrDel;
-                                                $messageErrDel = "";
-                                                ?></i></p>
                                                 <div class="my-3 float-end">
                                                     <button type="button" class="btn btn-editForm btn-closed" data-bs-dismiss="modal">Cancel</button>
                                                     <input type="submit" class="text-white bg-danger" id="submitDelete" name="submitDelete" value="Confirm">

@@ -19,6 +19,9 @@
         $password = $res["user_password"];
     }
     
+    $successImage = False;
+    $errImage = False;
+    $messageFileSuccess = "";
     $messageFile = "";
     if(isset($_POST['updateImage'])){
       $img_name = $_FILES['profileImage']['name'];
@@ -27,11 +30,10 @@
       $img_data = file_get_contents($tmp_name);
       $img_error = $_FILES['profileImage']['error'];
 
-      
-      
       if($img_error == 0){
           if($img_size > 125000){
-            $messageFile = "Your file is too large";
+            $messageFile = "Upload image failed, your file is too large";
+            $errImage = True;
           }
           else{
               $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
@@ -39,21 +41,22 @@
               $allowed_ex = array("jpg", "jpeg", "png");
   
               if(in_array($img_ex_lc, $allowed_ex)){
+                  $successImage = True;
+                  $messageFileSuccess = "Image has been successfully uploaded";
                   $dest = "user-image/$img_name";
                   move_uploaded_file($tmp_name, $dest);
                   $sql = "UPDATE user SET user_image = '$img_name' WHERE user_email='$emails'";
                   $result = mysqli_query($mysqli, $sql);
-                  header("Location: profile.php");
-                  echo "success";
-                  mysqli_close($mysqli);
               }
               else{
-                  $messageFile = "Wrong file type";
+                  $messageFile = "Upload image failed, only png, jpeg, and jpg file are allowed";
+                  $errImage = True;
               }
           }
       }
       else{
-        $messageFile = "Error occured, try again";
+        $messageFile = "Error occured while uploading the image, try again";
+        $errImage = True;
       }
   }
   mysqli_close($mysqli);
@@ -112,6 +115,35 @@
     </div>      
   </nav>
 
+  <?php
+        if($errImage){?>
+            <html>
+                <div class="alert alert-danger mb-2 pt-2 d-flex justify-content-center">
+                    <p><?php echo $messageFile; ?> </p>
+                </div>
+            </html>
+        <?php
+        }
+        if($successImage){?>
+            <html>
+                <div class="alert alert-success mb-2 pt-2 d-flex justify-content-center">
+                  <p><?php echo $messageFileSuccess; ?> </p>
+                </div>
+            </html>
+        <?php
+        }
+        $action=isset($_GET['action']);
+        if($action == "success"){?>
+          <html>
+                <div class="alert alert-success mb-2 pt-2 d-flex justify-content-center">
+                  <p><?php echo "Changes made have been saved"; ?> </p>
+                </div>
+            </html>
+        <?php
+        }?>
+         
+        
+
   <div class="container-fluid d-flex justify-content-center">    
     <main>
         <div class="row top_description mt-5">  
@@ -142,10 +174,6 @@
                                 <div class="mt-3">
                                   <input type="file" name="profileImage" id="addImage" class="form-control" onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
                                   <input class="updateImage text-white my-3 float-end" type="submit" name="updateImage" value="Confirm">
-                                  <p class="text-danger"><?php 
-                                  echo $messageFile;
-                                  $messageFile = "";
-                                  ?></p>
                                 </div>
                               </form>
                           </div>
