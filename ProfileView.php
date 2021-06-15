@@ -30,7 +30,7 @@ include_once("config\config.php");
      }
 
      $approved = "button";
-    if ($status == "Approved"){
+    if ($status == "approved"){
       $approved = "hidden";
     }
  
