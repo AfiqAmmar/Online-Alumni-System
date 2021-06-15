@@ -147,7 +147,7 @@ include_once("config\config.php");
                           <div class="row">
                             <div class="col">
                               <label for="LinkedIn" class="form-label"><strong>LinkedIn</strong></label>
-                                <input type="text" class="form-control" id="LinkedIn" value=<?php echo $linkedin ?> disabled>
+                                <input type="text" class="form-control" id="LinkedIn" value="<?php echo $linkedin ?>" disabled>
                             </div>
                             <div class="col">
                               <label for="PhoneNumber" class="form-label"><strong>Phone Number</strong></label>

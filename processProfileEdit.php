@@ -18,7 +18,7 @@ if (isset($_POST['save'])){
     $linkedin = $_POST["user_linkedin"];
 
     $image = $_FILES['image']['name'];
-    $target = "user-images/".basename($image);
+    $target = "user-image/".basename($image);
 
     try{
 

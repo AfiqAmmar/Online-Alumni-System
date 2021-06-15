@@ -1,20 +1,37 @@
 <?php
     session_start();
-    include("config.php");
+    include("config\config.php");
     include("Common.php");
    // $email = $course = $year = $bio = $city = $state = $phone = $linkedin = $image = $password = $name = "";
-    $_SESSION['email'] = $_GET['email'];
-    $common = new Common;
-    $name = $common->getValue($mysqli, 'user_name');
-    $email = $common->getValue($mysqli, 'user_email');
-    $course = $common->getValue($mysqli, 'user_course');
-    $year = $common->getValue($mysqli, 'user_year');
-    $bio = $common->getValue($mysqli, 'user_bio');
-    $city = $common->getValue($mysqli, 'user_city');
-    $state = $common->getValue($mysqli, 'user_state');
-    $phone = $common->getValue($mysqli, 'user_phone');
-    $linkedin = $common->getValue($mysqli, 'user_linkedin');
-    $image = $common->getValue($mysqli, 'user_image');
+    // $_SESSION['email'] = $_GET['email'];
+    
+    // $common = new Common;
+    // $name = $common->getValue($mysqli, 'user_name');
+    // $email = $common->getValue($mysqli, 'user_email');
+    // $course = $common->getValue($mysqli, 'user_course');
+    // $year = $common->getValue($mysqli, 'user_year');
+    // $bio = $common->getValue($mysqli, 'user_bio');
+    // $city = $common->getValue($mysqli, 'user_city');
+    // $state = $common->getValue($mysqli, 'user_state');
+    // $phone = $common->getValue($mysqli, 'user_phone');
+    // $linkedin = $common->getValue($mysqli, 'user_linkedin');
+    // $image = $common->getValue($mysqli, 'user_image');
+
+    $email = $_GET['email'];
+    $sql = "SELECT * FROM user WHERE user_email='$email'";
+    $result = mysqli_query($mysqli, $sql);
+    while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+        $name = $res['user_name'];
+        $course = $res['user_course'];
+        $year = $res['user_year'];
+        $bio = $res['user_bio'];
+        $city = $res['user_city'];
+        $state = $res['user_state'];
+        $email = $res['user_email'];
+        $phone = $res['user_phone'];
+        $linkedin = $res['user_linkedin'];
+        $image = $res['user_image'];
+    }
 ?>
 
 <html lang="en">
@@ -33,7 +50,7 @@
 <body>  
   <nav class="navbar sticky-top navbar-expand-md navbar-light justify-content-between">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="image/asset/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/asset/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="image/UM_Logo.png" alt="UM Logo" width="44" height="48"><img src="image/FSKTM_Logo.png" alt="FSKTM Logo" width="92" height="48"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,7 +79,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.php"><img src="image/asset/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
             <a href="logout.php" class="btn btn-logout text-white">log out</a>
@@ -84,7 +101,7 @@
        <div class="card mb-3; col-lg-auto" style="max-width: 2000;">
       <div class="row g-0">
       <div class="col-md-4">
-      <img class="img-responsive" src=<?php echo $image;?> alt="" height="300" width="300">
+      <img class="img-responsive" src="user-image/<?php echo $image;?>" alt="" height="300" width="300">
       </div>
       <div class="col-md-8">
       <div class="card-body">
@@ -93,11 +110,11 @@
         <i>Graduated on <?php echo $year?> </i>
           <ul>
             <li><b>Email:</b> <?php echo $email?> </li>
-            <li><b>Phone Number:</b> 0<?php echo $phone?> </li>
+            <li><b>Phone Number:</b> <?php echo $phone?> </li>
             <li><b>LinkedIn:</b><?php echo $linkedin?> </li>
             <li><b>Course:</b><?php echo $course?> </li>
             </ul>
-            <label for="Location"><p><img src="image/asset/Location.png" alt="Location Icon" height="20px" width="20px"><?php echo $city?>, <?php echo $state?></p></label><br>
+            <label for="Location"><p><img src="image/Location.png" alt="Location Icon" height="20px" width="20px"><?php echo $city?>, <?php echo $state?></p></label><br>
         
         </p>
       </div>
