@@ -2,6 +2,7 @@
 
 session_start();
 include_once("config\config.php"); 
+$emailUser = $_SESSION['email']; 
 // $Host = 'localhost:3306';
 // $database = 'job';
 // $username = 'job_admin';
@@ -30,11 +31,10 @@ if (isset($_POST["submit"])) {
      
     $img_name = $_FILES['photo']['name'];
     $target = "job-image/".basename($img_name);
-    $ttt = "INSERT INTO job (job_position, company, company_Address,job_image, job_city_state, job_description, job_contact, job_email) VALUES ('$title', '$cname', '$caddress','$img_name', '$citystate', '$desc', '$contact', '$email')";
+    $ttt = "INSERT INTO job (job_position, company, company_Address,job_image, job_city_state, job_description, job_contact, job_email, user_email) VALUES ('$title', '$cname', '$caddress','$img_name', '$citystate', '$desc', '$contact', '$email', '$emailUser')";
     mysqli_query($mysqli, $ttt );
 
     move_uploaded_file($_FILES['photo']['tmp_name'], $target);
-    $_SESSION['message'] = "Job saved"; 
     header('location: JOB_Ad.php');
 
     
@@ -63,7 +63,6 @@ if (isset($_POST['update'])) {
     }
 
     if (mysqli_query($mysqli,$uuu)){
-        $_SESSION['message'] = "Job updated!"; 
         header('location: JOB_Ad.php');
     }
 
@@ -76,7 +75,6 @@ if (isset($_GET['del'])) {
     $ddd = "DELETE FROM job WHERE job_id='$id'";
 	//mysqli_query($mysqli, $ddd);
     if (mysqli_query($mysqli,$ddd)){
-        $_SESSION['message'] = "Job deleted! job_id=$id"; 
 	    header('Location: JOB_Ad.php');
     }
 	

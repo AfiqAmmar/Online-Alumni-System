@@ -60,19 +60,6 @@ $emails = $_SESSION['email'];
 
     <h1 class="my-3">Job Advertisement</h1>
   
-
-
-      <!-- send user message -->
-      <?php if (isset($_SESSION['message'])): ?>
-	    <div class="msg">
-		  <?php 
-        echo $_SESSION['message']; 
-			  unset($_SESSION['message']);
-		  ?>
-	    </div>
-      <?php endif ?>  
-
-
             
 
 

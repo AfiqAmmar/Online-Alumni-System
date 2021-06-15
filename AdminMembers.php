@@ -70,7 +70,7 @@ if(mysqli_num_rows($result) > 0){
         <button class="navbar-toggler position-absolute d-md-none collapsed my-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="index.html" class="btn btn-logout text-white">log out</a>
+        <a href="logout.php" class="btn btn-logout text-white">log out</a>
     </header>
   
     <div class="container-fluid">

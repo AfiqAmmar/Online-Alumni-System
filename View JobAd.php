@@ -81,20 +81,19 @@ if (isset($_GET['view'])) {
     <div class="card mb-3" style="margin-bottom: 5%;">
 
     <div class="card-body mb-3" style="background-color: #c559b7;color: white;">
-    <h4><dt style="font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: #be85cc;" align="Center">Internship for Computer/IT Students</dt></h4>    
+    <h4><dt style="font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: #be85cc;" align="Center"><?php echo $row['job_position']; ?></dt></h4>    
     
         <div class="row" align="Center">
           <div class="pictureco">
-            <?php  echo'<img src="job-image/'.$row['job_image'].' " alt="dummycompany1" width="200" height="200" style="border-radius:50%' ;?>
+            <?php  echo'<img src="job-image/'.$row['job_image'].' " alt="dummycompany1" width="200" height="200" style="border-radius:50%"' ;?>
 
           </div> 
         </div>
 
         <div class="row">
     
-          <dd><?php echo $row['job_position']; ?><br>
-              <?php echo $row['company']; ?><br>
-          <?php echo $row['company_Address']; ?>, <?php echo $row['job_city_state']; ?>
+          <dd><strong><?php echo $row['company']; ?><br>
+          <?php echo $row['company_Address']; ?>, <?php echo $row['job_city_state']; ?> </strong>
 
             <br><br>
             <ol type="a">  
@@ -102,7 +101,7 @@ if (isset($_GET['view'])) {
             </ul><br>
             </ol>
 
-            <?php echo $row['job_contact']; ?> &nbsp;
+            <?php echo $row['job_contact']; ?> &nbsp; ||
             <?php echo $row['job_email']; ?>
           </dd>
         </div>

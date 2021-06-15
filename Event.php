@@ -65,7 +65,7 @@
 <div class="card text-black" style="max-width: 1200px; background-color:#F4C110;">
   <div class="row">
     <div class="col-md-8; col-lg-auto">
-      <img src=<?php echo $row["event_image"]; ?> class="center" alt="..." >
+      <img src="event-image/<?php echo $row["event_image"]; ?>" class="center" alt="..." >
       <div class="card-body">
         <h5 class="card-title"><b> <?php echo $row["event_name"];?></b></h5>
         <div class="card-text" Style="font-size: medium;">
