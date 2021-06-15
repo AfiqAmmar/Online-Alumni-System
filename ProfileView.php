@@ -4,9 +4,10 @@ include_once("config\config.php");
 
   
 
-    $id=$_GET['id'];
+    $email=$_GET['id'];
+    $page = $_GET['page'];
 
-    $sql2 = "SELECT * FROM user WHERE user_id=$id";
+    $sql2 = "SELECT * FROM user WHERE user_email='$email'";
     $result2 = mysqli_query($mysqli, $sql2);
 
     if(mysqli_num_rows($result2) > 0){
@@ -99,7 +100,7 @@ include_once("config\config.php");
         </nav>
           
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <form name="deleteProfile"  method="post" action=<?php echo "\"processProfileView.php?id=$id\""?> enctype="multiple/form-data">
+        <form name="deleteProfile"  method="post" action=<?php echo "\"processProfileView.php?page=$page&id=$email\""?> enctype="multiple/form-data">
           <div class="border-bottom text-center pt-3 pb-3">
             <h2><strong>Alumni Profile</strong></h2>
           </div>
@@ -112,7 +113,7 @@ include_once("config\config.php");
                 <div class="row">
                   <div class="col align-self-start height-100">
                     <div class="row pb-3">
-                      <img src=<?php echo "\"image/$image\"" ?> class="img-fluid rounded float-start">
+                      <img src="user-image/<?php echo $image?>" class="img-fluid rounded float-start">
                     </div>
                   </div>
 
@@ -193,11 +194,11 @@ include_once("config\config.php");
 
                 <div class="row">
                   <div class=" col d-grid gap-2 d-md-block">
-                    <a class="btn-view btn" href="AdminMembers.php" role="button">Back</a>        
+                    <a class="btn-view btn" href="AdminMembers.php?page=<?php echo $page ?>" role="button">Back</a>        
                   </div>
 
                   <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a class="btn-view btn" href=<?php echo "\"ProfileEdit.php?id=$id\"" ?> role="button">Edit</a>
+                    <a class="btn-view btn" href=<?php echo "\"ProfileEdit.php?page=$page&id=$email\"" ?> role="button">Edit</a>
                     <div>                
                       <script>
                         var myModal = document.getElementById('myModal')

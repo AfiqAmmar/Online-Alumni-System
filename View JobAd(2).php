@@ -87,7 +87,7 @@
                   <div class="picture">      
                       <input type="file" id="addImage" name="photo" class="form-control" 
                           onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])">
-                      <?php  echo'<img src="images/'.$photo.' " class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">' ;?>
+                      <?php  echo'<img src="job-image/'.$photo.' " class="card-img-left" id="addImagePreview" alt="add image preview" width="259" height="259">' ;?>
                     </div>
             <div class="row">
               <div class="col-md-6">

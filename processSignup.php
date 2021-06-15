@@ -63,10 +63,7 @@
         $samePassword = checkPassword($password, $rpassword);
 
         if(!$samePassword){
-                ?>
-                <html>
-                    <div class="alert alert-danger margin-top-40" role="alert">Passwords did not match. <br>Please try again.</div>
-                </html><?php header("Location: signup.php? action=signup_failed");
+                header("Location: signup.php? action=signup_failed");
         }else{
             $hashedpassword = sha1($password);
             $stmt = "INSERT INTO user (user_email, user_password, user_name, user_course, user_year, user_image, user_status)  

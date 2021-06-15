@@ -78,13 +78,15 @@ include("config.php");
             
             $result = mysqli_query($mysqli,$query);
             $numrows = mysqli_num_rows($result);
-            if($numrows > 0){
-              echo "Search result for \"<b>$keyword</b>\"";?>
+            echo "Search result for \"<b>$keyword</b>\"";
+            ?>
               <hr class="my-4">
-            <?php  while($row = mysqli_fetch_assoc($result)):
-                  if ($row ["user_status"]== "approved") {
-                      ?> 
-          <p class="lead"></p>
+              <?php if($numrows > 0){
+              
+             
+            while($row = mysqli_fetch_assoc($result)):
+            if ($row ["user_status"]== "approved"){ ?> 
+             <p class="lead"></p>
           <!--Profile List-->
           <div>
           <div>
@@ -112,7 +114,8 @@ include("config.php");
                     </div>
                </div>
           <?php
-                  }endwhile;  
+          }
+           endwhile; 
            }else{
             echo "No results found for \"<b>$keyword</b>\"";
           }?>

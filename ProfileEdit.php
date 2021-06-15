@@ -2,14 +2,15 @@
 
 include_once("config\config.php");
 
-    $id=$_GET['id'];
+    $email=$_GET['id'];
+    $page=$_GET['page'];
 
-    $sql3 = "SELECT * FROM user WHERE user_id=$id";
+    $sql3 = "SELECT * FROM user WHERE user_email='$email'";
     $result3 = mysqli_query($mysqli, $sql3);
 
     if(mysqli_num_rows($result3) > 0){
       while($row = mysqli_fetch_assoc($result3)){
-        $id = $row["user_id"];
+        $email = $row["user_email"];
         $name = $row["user_name"];
         $course = $row["user_course"];
         $year = $row["user_year"];
@@ -99,7 +100,7 @@ include_once("config\config.php");
         </nav>
           
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <form name="editProfile" method="post" action=<?php echo "\"processProfileEdit.php?id=$id\""?> enctype="multiple/form-data">
+        <form name="editProfile" method="POST" action=<?php echo "\"processProfileEdit.php?page=$page&id=$email\""?> enctype="multipart/form-data">
           <div class="border-bottom text-center pt-3 pb-3">
             <h2><strong>Alumni Profile</strong></h2>
           </div>
@@ -113,8 +114,8 @@ include_once("config\config.php");
                   <div class="col">
                     <div class="picture-container">
                       <div class="picture">
-                          <img src=<?php echo "\"image/$image\"" ?> class="card-img-top" id="addImagePreview" alt="add image preview" >
-                          <input type="file" id="addImage" class="form-control" name= "user_image"
+                          <img src="user-image/<?php echo $image?>" class="card-img-top" id="addImagePreview" alt="add image preview" >
+                          <input type="file" id="addImage" class="form-control" name= "image"
                               onchange="document.getElementById('addImagePreview').src = window.URL.createObjectURL(this.files[0])"
                               
                               >
@@ -206,7 +207,7 @@ include_once("config\config.php");
                 <div class="container">
                   <div class="row mt-5 pt-5">
                     <div class=" col d-grid gap-2 d-md-block">
-                      <a class="btn-view btn" href=<?php  echo "\"ProfileView.php?id=$id\"" ?> role="button">Back</a>     
+                      <a class="btn-view btn" href=<?php  echo "\"ProfileView.php?page=$page&id=$email\"" ?> role="button">Back</a>     
                     </div>       
                     <input type="submit" name="save" value="Save" class="btn btn-view" role="button">                  
                   </div>

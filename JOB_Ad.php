@@ -1,4 +1,6 @@
-<?php  include('processJob.php'); ?>
+<?php  include('processJob.php');
+$emails = $_SESSION['email'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +59,7 @@
     </nav>
 
     <h1 class="my-3">Job Advertisement</h1>
+  
 
 
       <!-- send user message -->
@@ -68,6 +71,8 @@
 		  ?>
 	    </div>
       <?php endif ?>  
+
+
             
 
 
@@ -76,17 +81,36 @@
 
       <?php while ($row = mysqli_fetch_array($results)) { ?>
 
-      <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
-        <div class="pictureco">
-          <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
-        </div>
-      <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
-      <li>  <?php echo $row["company"]; ?>  <br>
-           <?php echo $row["company_Address"]; ?> </li>
-        <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
-      </div><br>
+
+        <?php if($emails!=$row["user_email"]) { ?>
+        
+        <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
+          <div class="pictureco">
+            <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
+          </div>
+        <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
+        <li>  <?php echo $row["company"]; ?>  <br>
+            <?php echo $row["company_Address"]; ?> </li>
+          <a href="View JobAd.php?view=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">View</a></ul>
+        </div><br>
+        <?php } ?>
+        
+        <?php if($emails==$row["user_email"]) { ?>
+        
+        <div class="card-body" style="background-color: #c559b7;color: white; width: 45%;">
+          <div class="pictureco">
+            <?php echo '<img src="job-image/'.$row['job_image'].' "  width="150" height="150" style="border-radius:50%;">';?>
+          </div>
+        <ul><strong>  <?php echo $row["job_position"]; ?>  </strong>
+        <li>  <?php echo $row["company"]; ?>  <br>
+            <?php echo $row["company_Address"]; ?> </li>
+          <a href="View JobAd(2).php?edit=<?php echo $row['job_id']; ?>" type="button" class="btn btn-v" name="edit">Edit</a></ul>
+        </div><br>
+        <?php } ?>
       
        <?php } ?>
+
+       
 
       <div class="card-body" align="Center">
         <a href="Add_DeleteJob.php" type="button" class="btn btn-add text-white" name="add">Add</a>

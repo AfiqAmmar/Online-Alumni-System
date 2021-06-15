@@ -1,3 +1,22 @@
+<?php  include('processJob.php'); 
+if (isset($_GET['view'])) {
+    $id = $_GET['view'];
+    $update = true;
+    $record = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id=$id");
+    $n = mysqli_fetch_array($record, MYSQLI_ASSOC);
+
+        $photo = $n["job_image"];
+        $title = $n["job_position"];
+        $cname = $n["company"];
+        $caddress = $n["company_Address"];
+        $citystate = $n["job_city_state"];
+        $desc = $n["job_description"];
+        $contact = $n["job_contact"];
+        $email = $n["job_email"];
+  } 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,79 +43,76 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="Homepage.html">Home</a>
+                  <a class="nav-link" href="Homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Event.html">Event</a>
+                  <a class="nav-link" href="Event.php">Event</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="JOB_Ad.html">Careers</a>
+                  <a class="nav-link active" aria-current="page" href="JOB_Ad.php">Careers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Alumni.html">Alumni</a>
+                  <a class="nav-link" href="Alumni.php">Alumni</a>
                 </li>
             </ul>
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="SearchPage.php" method= "get">
               <div class="input-group add-on">
-                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <input class="form-control" placeholder="Search for alumni" name="search" id="search" type="text">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search">  </i></button>
                 </div>
               </div>
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="profile.html"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
+                <a class="nav-link" href="profile.php"><img src="image/icon.png" alt="Profile Icon Image" height="50px" width="50px"></a>
               </li>
             </ul>
-            <a href="index.html" class="btn btn-logout text-white">log out</a>
+            <a href="logout.php" class="btn btn-logout text-white">log out</a>
         </div>
       </div>      
     </nav>
 
     <h1 class="my-3">Job Advertisement</h1>
+<form class="row g-3 text-center"  action="processJob.php" method="POST" enctype="multipart/form-data">
+<?php $results = mysqli_query($mysqli, "SELECT * FROM job WHERE job_id='$id'"); ?>
 
+<?php while ($row = mysqli_fetch_array($results)) { ?>
     <div class="card mb-3" style="margin-bottom: 5%;">
 
-    <div class="card-body" style="background-color: #c559b7;color: white;">
+    <div class="card-body mb-3" style="background-color: #c559b7;color: white;">
     <h4><dt style="font-family:Verdana, Geneva, Tahoma, sans-serif; background-color: #be85cc;" align="Center">Internship for Computer/IT Students</dt></h4>    
     
         <div class="row" align="Center">
           <div class="pictureco">
-            <a href="c1.jpg"><img src="image/c1thumb.png" alt="dummycompany1" width="200" height="200" style="border-radius:50%;"></a>
-          </div> </div>
+            <?php  echo'<img src="job-image/'.$row['job_image'].' " alt="dummycompany1" width="200" height="200" style="border-radius:50%' ;?>
+
+          </div> 
+        </div>
 
         <div class="row">
     
-          <dd>DKSH Corporate Shared Services Center Sdn Bhd<br>
-            Jalan Damansara, Uptown1, Kuala Lumpur 
+          <dd><?php echo $row['job_position']; ?><br>
+              <?php echo $row['company']; ?><br>
+          <?php echo $row['company_Address']; ?>, <?php echo $row['job_city_state']; ?>
 
-            <br><br>Position 1: Intern, Technical Delivery – Portal & Workflow Applications
-            <ol type="a">  <li>Job Responsibilities:</li> 
-            <ul>
-                <li>Analyse, compile and group similar tickets raised and assign to right PIC after discussion with team manager</li>
-                <li>Prepare knowledge-based document for common / known issue</li>
-                <li>Helping in troubleshooting on reported issue</li>
-                <li>Involve in Functional Testing</li>
-                <li>Develop small module for low risk project</li>
+            <br><br>
+            <ol type="a">  
+            <ul><?php echo $row['job_description']; ?>
             </ul><br>
+            </ol>
 
-            <li>Job Requirements:</li> 
-            <ul>
-                <li>Candidate must possess or pursuing at least Bachelor's degree in Computing/Information Technology or equivalent</li>
-                <li>Proficient in MS Office</li>
-                <li>Articulate, confident, & effective communicator (written & verbal);</li>
-            </ul></ol>
-
-            Contact: 03-80202051 &nbsp;
-            Email: dknshSDNBHD@gmail.com
+            <?php echo $row['job_contact']; ?> &nbsp;
+            <?php echo $row['job_email']; ?>
           </dd>
         </div>
 
       </div>
     </div>
+</form>
+<?php } ?>
 
-    <footer class="footer mt-auto fixed-bottom py-0 text-white">
+    <footer class="footer mt-auto fixed-bottom py-0 text-white ">
         <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
         <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
