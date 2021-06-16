@@ -61,7 +61,27 @@
                             <div class="col text-center">
                                 <div class="card-event shadow">
                                     <div class="img-container">
-                                        <a href="processEvent.php?del=<?php echo $row['event_id']; ?>" class="btn btn-delete" id="btnDelete" role="button">X</a>
+                                        <button type="submit" class="btn btn-delete text-center" data-bs-toggle="modal" data-bs-target="#deleteModal">X</button>
+                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header text-center" style="background-color: #FF0000;">
+                                                        <h6 class="modal-title w-100 text-white" id="deleteModalLabel">Are you sure you want to delete this event?</h6>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="processEvent.php" method="POST">
+                                                            <div class="form-group">
+                                                                <label for="inputDeleteEvent" class="col-form-label">Please enter the event name to proceed</label>
+                                                                <input type="text" class="form-control text-center" name="event_name" id="inputDeleteEvent">
+                                                                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">cancel</button>
+                                                                    <button type="submit" id="delete" name="delete" class="text-white btn btn-deletebetul">delete</button> 
+                                                            </div>
+                                                        </form>
+                                                    </div>         
+                                                </div>
+                                            </div>
+                                        </div>
                                         <?php 
                                             echo '<img src="event-image/'.$row['event_image'].'" class="card-img-top cropped">';
                                         ?>
