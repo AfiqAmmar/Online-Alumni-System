@@ -147,7 +147,7 @@
         </form>       
      </div> 
 
-    <footer class="footer mt-auto py-0 text-white">
+    <footer class="footer fixed-bottom mt-auto py-0 text-white">
         <p class="float-end"><small><i><a class="text-white" href="#">Back to top</a></i></small></p>
         <p><small><i>&copy; 2021 All Right Reserved. Designed and Developed by Afifah & Friends</i></small></p>
     </footer>      
