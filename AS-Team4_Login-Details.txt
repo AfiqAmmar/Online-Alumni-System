@@ -1,0 +1,16 @@
+ADMIN
+
+email: admin@gmail.com
+password: admin123
+
+----------------------------
+
+ALUMNI
+
+approved alumni
+email: sarah@gmail.com
+password: sarah
+
+pending alumni
+email: afifahnurul@gmail.com
+password: afifah2
