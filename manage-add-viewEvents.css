@@ -77,16 +77,48 @@ footer{
     vertical-align: text-bottom;
 }
 
-/* general, events */
+/* events */
 
 .card-event {
     margin-top: 30px;
     border-radius: 5%;
-    min-height: 535px;
+    min-height: 335px;
 }
 
 .card-event-title {
     font-weight: bold;
+}
+
+.btn-add {
+    background-color: #a30fb0;
+    color: #FFFFFF;
+    font-size: xx-large;
+    position: fixed;
+    bottom: 50px;
+    left: 80px;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    box-shadow: 1px 3px 5px #888888;
+}
+
+.btn-add-submit{
+    background-color: #eb078b;
+    color: white !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 35px;
+}
+
+.btn-edit-save {
+    background-color: #eb078b;
+    color: white !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 35px;
 }
 
 .btn-previous {
@@ -101,6 +133,54 @@ footer{
     margin-bottom: 30px;
     border-radius: 30px;
     box-shadow: 1px 3px 5px #888888;
+}
+
+.btn-delete {
+    background-color: red;
+    font-weight: bold;
+    font-size: large;
+    color: white !important;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-shadow: 1px 3px 5px #888888;
+}
+
+.btn-deletebetul {
+    background-color: red;
+    color: white !important;
+    width: 100px;
+    height: 35px;
+    margin: 20px 10px 10px 10px;
+}
+
+.btn-cancel {
+    border-color: gray;
+    width: 100px;
+    height: 35px;
+    margin: 20px 10px 10px 10px;
+}
+
+.img-container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}
+
+.cropped {
+    height: 200px; /* height of container */
+    object-fit: cover;
+}
+
+.card-img-top {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+.card-img-left {
+    height: 200px;
 }
 
 .picture{
@@ -119,98 +199,4 @@ footer{
 .picture input[type="file"] {
     cursor: pointer;
     opacity: 0 !important;
-}
-
-/* manage events */
-
-.card-img-top {
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
-}
-
-.cropped {
-    height: 350px; /* height of container */
-    object-fit: cover;
-}
-
-.btn-view {
-    background-color: #eb078b;
-    color: white !important;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 35px;
-}
-
-.btn-add {
-    background-color: #a30fb0;
-    color: #FFFFFF;
-    font-size: xx-large;
-    position: fixed;
-    bottom: 50px;
-    left: 80px;
-    height: 60px;
-    width: 60px;
-    margin-bottom: 30px;
-    border-radius: 30px;
-    box-shadow: 1px 3px 5px #888888;
-}
-
-.img-container {
-    position:relative;
-    display:inline-block;
-    text-align:center;
-}
-
-.btn-delete {
-    background-color: red;
-    font-weight: bold;
-    font-size: large;
-    color: white !important;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    box-shadow: 1px 3px 5px #888888;
-}
-
-/* add event */
-
-.btn-add-submit{
-    background-color: #eb078b;
-    color: white !important;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 35px;
-}
-
-/* view event */
-
-.btn-edit-update {
-    background-color: #eb078b;
-    color: white !important;
-    width: 100px;
-    height: 35px;
-    margin: 20px 10px 20px 10px;
-}
-
-.btn-deletebetul {
-    background-color: red;
-    color: white !important;
-    width: 100px;
-    height: 35px;
-    margin: 20px 10px 10px 10px;
-}
-
-.btn-cancel {
-    border-color: gray;
-    width: 100px;
-    height: 35px;
-    margin: 20px 10px 10px 10px;
-}
-
-.card-img-left {
-    height: 200px;
 }

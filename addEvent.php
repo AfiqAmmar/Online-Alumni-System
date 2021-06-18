@@ -1,3 +1,19 @@
+<?php
+
+    session_start();
+    $emails = $_SESSION['email'];
+
+    if($emails!=NULL) {
+        include("config\config.php");
+        mysqli_close($mysqli);
+    }
+    else {
+        header("Location: index.php");
+    }
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +67,7 @@
                             <div class="card-body">
                                 <h2 class="card-event-title py-3">New event details</h2>
                                 <form action="processEvent.php" method="POST" class="row g-3 text-center" enctype="multipart/form-data">
+                                    <input type="hidden" name="admin_email" value="<?php echo $emails; ?>">
                                     <div class="picture-container d-flex justify-content-center">
                                         <div class="picture">
                                             <img src="image/blankImage.png" class="card-img-left" id="addImagePreview" alt="add image preview">

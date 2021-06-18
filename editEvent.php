@@ -1,25 +1,31 @@
 <?php
 
     session_start();
-    include("config\config.php");
-
-    if (isset($_GET['view'])) {
-        $id = $_GET['view'];
-        $sql = "SELECT * from event where event_id=$id";
-        $result = mysqli_query($mysqli, $sql);
-
-        while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $name = $res['event_name'];
-            $organiser = $res['event_organiser'];
-            $date = $res['event_date'];
-            $start = $res['event_start'];
-            $end = $res['event_end'];
-            $venue = $res['event_venue'];
-            $desc = $res['event_description'];
-            $image = $res['event_image'];
+    $emails = $_SESSION['email'];
+    
+    if($emails!=NULL) {
+        include("config\config.php");
+        if (isset($_GET['edit'])) {
+            $id = $_GET['edit'];
+            $sql = "SELECT * from event where event_id=$id";
+            $result = mysqli_query($mysqli, $sql);
+    
+            while($res = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                $name = $res['event_name'];
+                $organiser = $res['event_organiser'];
+                $date = $res['event_date'];
+                $start = $res['event_start'];
+                $end = $res['event_end'];
+                $venue = $res['event_venue'];
+                $desc = $res['event_description'];
+                $image = $res['event_image'];
+            }
+    
+            mysqli_close($mysqli);
         }
-
-        mysqli_close($mysqli);
+    }
+    else {
+        header("Location: index.php");
     }
 
 ?>
@@ -76,6 +82,7 @@
                             <h2 class="card-event-title py-3">Event details</h2>
                             <form action="processEvent.php" method="POST" class="row g-3 text-center" enctype="multipart/form-data">
                                 <input type="hidden" name="event_id" value="<?php echo $id; ?>">
+                                <input type="hidden" name="admin_email" value="<?php echo $emails; ?>">
                                 <div class="picture-container d-flex justify-content-center">
                                     <div class="picture">
                                         <img src="event-image/<?php echo $image; ?>" class="card-img-left" id="ImagePreview" alt="image">
@@ -112,8 +119,7 @@
                                     <textarea class="form-control" id="inputDesc" name="event_description" rows="5" placeholder="Write a short description here..."><?php echo ($desc) ?></textarea>
                                 </div>
                                 <div class="col text-center">
-                                    <button type="button" name="edit" id="btnEdit" class="btn btn-edit-update">edit</button>
-                                    <button type="submit" name="update" id="btnUpdate" class="btn btn-edit-update">update</button>
+                                    <button type="submit" name="save" id="btnSave" class="btn btn-edit-save">save</button>
                                 </div>                               
                               </form>
                         </div>
@@ -134,19 +140,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         feather.replace()
-
-        $(document).ready(function() {
-            $("input").attr("disabled", true);
-            $("textarea").attr("disabled", true);
-            $("file").attr("disabled", true);
-        });
-
-        $("#btnEdit").on("click", function () {
-            $("input").attr("disabled", false);
-            $("textarea").attr("disabled", false);
-            $("file").attr("disabled", false);
-        });
-
     </script>
 </body>
 </html>

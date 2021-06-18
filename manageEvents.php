@@ -1,8 +1,17 @@
 <?php
     session_start();
-    include_once("config\config.php");
-    $sql = "SELECT * FROM event ORDER BY event_date DESC";
-    $result = mysqli_query($mysqli, $sql);
+    $emails = $_SESSION['email'];
+    
+    if($emails!=NULL) {
+        include_once("config\config.php");
+        $sql = "SELECT * FROM event ORDER BY event_date DESC";
+        $result = mysqli_query($mysqli, $sql);
+        mysqli_close($mysqli);
+    }
+    else {
+        header("Location: index.php");
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -61,8 +70,8 @@
                             <div class="col text-center">
                                 <div class="card-event shadow">
                                     <div class="img-container">
-                                        <button type="submit" class="btn btn-delete text-center" data-bs-toggle="modal" data-bs-target="#deleteModal">X</button>
-                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                        <button type="submit" class="btn btn-delete text-center" data-bs-toggle="modal" data-bs-target="#message<?php echo $row['event_id'];?>">X</button>
+                                        <div id="message<?php echo $row['event_id'];?>" class="modal fade" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header text-center" style="background-color: #FF0000;">
@@ -72,10 +81,11 @@
                                                     <div class="modal-body">
                                                         <form action="processEvent.php" method="POST">
                                                             <div class="form-group">
-                                                                <label for="inputDeleteEvent" class="col-form-label">Please enter the event name to proceed</label>
-                                                                <input type="text" class="form-control text-center" name="event_name" id="inputDeleteEvent">
-                                                                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">cancel</button>
-                                                                    <button type="submit" id="delete" name="delete" class="text-white btn btn-deletebetul">delete</button> 
+                                                                <label for="inputDeleteEvent" class="col-form-label">Please enter your password to proceed</label>
+                                                                <input type="hidden" name="event_id" value="<?php echo $row['event_id'];?>">
+                                                                <input type="password" class="form-control text-center" name="admin_password" id="inputDeleteEvent" required>
+                                                                <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">cancel</button>
+                                                                <button type="submit" id="delete" name="delete" class="text-white btn btn-deletebetul">delete</button> 
                                                             </div>
                                                         </form>
                                                     </div>         
@@ -88,7 +98,7 @@
                                     </div>
                                     <div class="card-body my-4">
                                         <h5 class="card-event-title"><?php echo $row['event_name']; ?><br></h5>
-                                        <a href="viewEvent.php?view=<?php echo $row['event_id']; ?>" class="btn btn-view">view</a>
+                                        <a href="editEvent.php?edit=<?php echo $row['event_id']; ?>" class="btn btn-edit-save">edit</a>
                                     </div>
                                 </div>
                             </div>
